@@ -9,7 +9,8 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/70 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#inicio" className="font-mono text-lg font-semibold tracking-tight">
+        <a href="#inicio" className="flex items-center gap-2 font-mono text-lg font-semibold tracking-tight">
+          <span className="status-dot h-1.5 w-1.5 rounded-full bg-accent-2" />
           eric<span className="text-gradient">gonzalez.ia</span>
         </a>
 
@@ -18,16 +19,17 @@ export default function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="group relative text-sm text-muted transition-colors hover:text-foreground"
             >
               {item.label}
+              <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-accent to-accent-2 transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
 
         <a
           href={`mailto:${site.email}`}
-          className="hidden rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-accent hover:text-accent md:inline-block"
+          className="hidden rounded-full border border-border px-4 py-2 font-mono text-sm transition-all hover:border-accent hover:text-accent hover:shadow-[0_0_20px_-8px_var(--accent)] md:inline-block"
         >
           Contáctame
         </a>
