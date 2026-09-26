@@ -37,16 +37,52 @@ export const services = [
     icon: "chat",
   },
   {
-    title: "Marca Personal",
+    title: "Automatización de Negocios con IA",
     description:
-      "Estrategia, posicionamiento y construcción de marca personal en redes — para que tu nombre se convierta en tu mejor carta de presentación.",
-    icon: "brand",
+      "WhatsApp, Instagram y flujos internos (n8n, Make) que atienden, agendan y venden solos — para que dejes de repetir las mismas tareas todos los días.",
+    icon: "automation",
+  },
+  {
+    title: "Agentes Internos con IA",
+    description:
+      "Un asistente entrenado con los documentos y procesos de tu empresa, para que tu equipo encuentre respuestas al instante sin buscar en mil archivos.",
+    icon: "brain",
+  },
+  {
+    title: "Auditoría de IA para tu Negocio",
+    description:
+      "Diagnóstico claro de dónde la IA te ahorra tiempo y dinero hoy mismo, con un plan de implementación paso a paso — sin promesas vacías.",
+    icon: "audit",
   },
   {
     title: "Consultoría en IA",
     description:
-      "Acompañamiento para implementar soluciones de inteligencia artificial en tu negocio, sin tecnicismos y con resultados medibles.",
+      "Acompañamiento continuo para implementar y ajustar soluciones de inteligencia artificial en tu negocio, sin tecnicismos y con resultados medibles.",
     icon: "consulting",
+  },
+  {
+    title: "Marca Personal",
+    description:
+      "Estrategia, posicionamiento y optimización de tus perfiles (LinkedIn, Instagram, Threads) para que tu nombre sea tu mejor carta de presentación.",
+    icon: "brand",
+  },
+  {
+    title: "Contenido y Creatividad con IA",
+    description:
+      "Posts, guiones, imágenes y calendario editorial generados con IA — contenido constante para tu marca sin que te consuma el día.",
+    icon: "content",
+  },
+  {
+    title: "Mantenimiento y Soporte Mensual",
+    description:
+      "Actualizo, cuido y mejoro tu web o chatbot mes a mes, para que nunca tengas que preocuparte por que algo deje de funcionar.",
+    icon: "support",
+  },
+  {
+    title: "Recursos y Plantillas con IA",
+    description:
+      "Plantillas, prompts y mini-guías listas para usar, para que apliques IA en tu negocio desde el primer día sin empezar de cero.",
+    icon: "product",
   },
 ];
 
