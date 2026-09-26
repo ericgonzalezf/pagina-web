@@ -7,7 +7,7 @@ export const site = {
     "Consultor en inteligencia artificial, desarrollo web y marca personal. IA aplicada sin tecnicismos — nunca es tarde para empezar.",
   tagline: "IA aplicada sin tecnicismos.",
   subtagline: "Nunca es tarde. IA para todos — caminemos juntos.",
-  email: "eric@ericgonzalezf.com",
+  email: "contacto@ericgonzalezf.com",
   social: {
     threads: "https://www.threads.net/@ericgonzalez.ia",
     instagram: "https://www.instagram.com/ericgonzalez.ia",
