@@ -12,7 +12,7 @@ export const site = {
     threads: "https://www.threads.net/@ericgonzalez.ia",
     instagram: "https://www.instagram.com/ericgonzalez.ia",
     linkedin: "#",
-    tiktok: "https://www.tiktok.com/@eric_1306",
+    tiktok: "https://www.tiktok.com/@ericgonzalez.ia",
   },
 };
 
