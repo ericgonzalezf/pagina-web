@@ -12,7 +12,7 @@ export default function Header() {
         <a href="#inicio" className="flex items-center gap-2 font-mono text-lg font-semibold tracking-tight">
           <span className="status-dot h-1.5 w-1.5 rounded-full bg-accent-2" />
           <span>
-            eric<span className="text-gradient">gonzalez.ia</span>
+            eric<span className="text-gradient">gonzalezf.com</span>
           </span>
         </a>
 
