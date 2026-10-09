@@ -24,24 +24,26 @@ export default function About() {
               <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-              <span className="ml-3 font-mono text-xs text-muted">~/ericgonzalez.ia</span>
+              <span className="ml-3 font-mono text-xs text-muted">~/eric</span>
             </div>
 
             <div className="space-y-3 p-6 font-mono text-sm leading-relaxed">
               <p className="text-muted">
-                <span className="text-accent-2">$</span> whoami
-              </p>
-              <p className="pl-4 text-foreground">Eric González — IA Builder</p>
-
-              <p className="pt-2 text-muted">
-                <span className="text-accent-2">$</span> stack --show
+                <span className="text-accent-2">$</span> quien-soy
               </p>
               <p className="pl-4 text-foreground">
-                [IA, Automatización, Chatbots, Next.js, Marca Personal]
+                Eric — 25 años emprendiendo, IA después de los 40
               </p>
 
               <p className="pt-2 text-muted">
-                <span className="text-accent-2">$</span> mission
+                <span className="text-accent-2">$</span> que-hago
+              </p>
+              <p className="pl-4 text-foreground">
+                Te enseño IA y la aplico en tu negocio
+              </p>
+
+              <p className="pt-2 text-muted">
+                <span className="text-accent-2">$</span> mision
               </p>
               <p className="pl-4 text-foreground">
                 &ldquo;Nunca es tarde. IA para todos — caminemos juntos.&rdquo;
