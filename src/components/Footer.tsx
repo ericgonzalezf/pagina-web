@@ -7,7 +7,6 @@ export default function Footer() {
         <p>
           © {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
         </p>
-        <p className="font-mono">{site.handle}</p>
       </div>
     </footer>
   );

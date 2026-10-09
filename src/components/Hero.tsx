@@ -15,7 +15,6 @@ export default function Hero() {
             Disponible para nuevos proyectos
           </div>
 
-          <p className="mb-4 font-mono text-sm text-accent-2">{site.handle}</p>
           <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl">
             <span className="text-gradient">{site.tagline}</span>
           </h1>
