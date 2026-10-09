@@ -11,7 +11,9 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#inicio" className="flex items-center gap-2 font-mono text-lg font-semibold tracking-tight">
           <span className="status-dot h-1.5 w-1.5 rounded-full bg-accent-2" />
-          eric<span className="text-gradient">gonzalez.ia</span>
+          <span>
+            eric<span className="text-gradient">gonzalez.ia</span>
+          </span>
         </a>
 
         <nav className="hidden gap-8 md:flex">
