@@ -34,6 +34,8 @@ export default function Hero() {
         </div>
 
         <div className="relative mx-auto">
+          <div className="spotlight -inset-24" />
+
           <div className="relative h-64 w-64 sm:h-80 sm:w-80">
             {/* HUD corner brackets */}
             <span className="absolute -left-3 -top-3 h-8 w-8 rounded-tl-2xl border-l-2 border-t-2 border-accent-2" />
