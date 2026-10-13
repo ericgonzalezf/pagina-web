@@ -1,10 +1,11 @@
 import { about } from "@/config/site";
 import Reveal from "@/components/Reveal";
+import Container from "@/components/Container";
 
 export default function About() {
   return (
     <section id="sobre-mi" className="relative border-t border-border py-24">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+      <Container className="grid grid-cols-1 gap-12 md:grid-cols-[1.05fr_0.95fr] md:items-center">
         <Reveal>
           <span className="font-mono text-sm text-accent">01 · {about.heading}</span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -56,7 +57,7 @@ export default function About() {
             </div>
           </div>
         </Reveal>
-      </div>
+      </Container>
     </section>
   );
 }

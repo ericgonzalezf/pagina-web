@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { site } from "@/config/site";
 import Marquee from "@/components/Marquee";
+import Container from "@/components/Container";
 
 export default function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden pt-24">
-      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-96px)] max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-[1.1fr_0.9fr]">
+      <Container className="relative z-10 grid min-h-[calc(100vh-96px)] grid-cols-1 items-center gap-12 py-16 md:min-h-0 md:grid-cols-[1.1fr_0.9fr] md:py-12">
         <div>
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-xs text-muted">
             <span className="status-dot h-1.5 w-1.5 rounded-full bg-accent-2" />
@@ -16,6 +17,11 @@ export default function Hero() {
             <span className="text-gradient">{site.tagline}</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted">{site.subtagline}</p>
+
+          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-xs text-muted">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent-2" />
+            25 años emprendiendo · IA después de los 40
+          </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
             <a
@@ -66,7 +72,7 @@ export default function Hero() {
             </span>
           </div>
         </div>
-      </div>
+      </Container>
 
       <Marquee />
     </section>

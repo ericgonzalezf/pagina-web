@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { nav, site } from "@/config/site";
+import Container from "@/components/Container";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/70 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <Container className="flex items-center justify-between py-4">
         <a href="#inicio" className="flex items-center gap-2 font-mono text-lg font-semibold tracking-tight">
           <span className="status-dot h-1.5 w-1.5 rounded-full bg-accent-2" />
           <span>
@@ -53,7 +54,7 @@ export default function Header() {
             />
           </span>
         </button>
-      </div>
+      </Container>
 
       {open && (
         <nav className="flex flex-col gap-1 border-t border-border px-6 py-4 md:hidden">

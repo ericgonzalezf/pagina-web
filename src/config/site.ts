@@ -8,6 +8,7 @@ export const site = {
   tagline: "IA aplicada sin tecnicismos.",
   subtagline: "Nunca es tarde. IA para todos — caminemos juntos.",
   email: "contacto@ericgonzalezf.com",
+  whatsapp: "525610738845",
   social: {
     threads: "https://www.threads.net/@ericgonzalez.ia",
     instagram: "https://www.instagram.com/ericgonzalez.ia",
@@ -23,13 +24,28 @@ export const nav = [
   { label: "Contacto", href: "#contacto" },
 ];
 
-export const services = [
+export const featuredServices = [
   {
-    title: "Páginas Web",
+    title: "Tu negocio atendiendo en WhatsApp con IA",
     description:
-      "Sitios web modernos, rápidos y a medida — para negocios, marcas personales y proyectos que necesitan presencia digital de verdad.",
+      "Un asistente que responde, agenda y vende por WhatsApp las 24 horas, entrenado con la información de tu negocio.",
+    icon: "chat",
+  },
+  {
+    title: "Descubre dónde la IA ahorra tiempo en tu negocio",
+    description:
+      "Un diagnóstico claro de tus procesos y un plan paso a paso para aplicar IA donde realmente te ahorra tiempo y dinero.",
+    icon: "audit",
+  },
+  {
+    title: "Tu página web profesional, lista para vender",
+    description:
+      "Un sitio moderno, rápido y hecho a la medida, que presenta tu negocio con claridad y te ayuda a conseguir clientes.",
     icon: "web",
   },
+];
+
+export const services = [
   {
     title: "Chatbots con IA",
     description:
@@ -47,12 +63,6 @@ export const services = [
     description:
       "Un asistente entrenado con los documentos y procesos de tu empresa, para que tu equipo encuentre respuestas al instante sin buscar en mil archivos.",
     icon: "brain",
-  },
-  {
-    title: "Auditoría de IA para tu Negocio",
-    description:
-      "Diagnóstico claro de dónde la IA te ahorra tiempo y dinero hoy mismo, con un plan de implementación paso a paso — sin promesas vacías.",
-    icon: "audit",
   },
   {
     title: "Consultoría en IA",

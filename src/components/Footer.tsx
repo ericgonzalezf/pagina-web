@@ -1,13 +1,14 @@
 import { site } from "@/config/site";
+import Container from "@/components/Container";
 
 export default function Footer() {
   return (
     <footer className="border-t border-border py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 text-sm text-muted sm:flex-row">
+      <Container className="flex flex-col items-center justify-between gap-3 text-sm text-muted sm:flex-row">
         <p>
           © {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
         </p>
-      </div>
+      </Container>
     </footer>
   );
 }

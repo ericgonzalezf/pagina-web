@@ -1,6 +1,7 @@
 import { site } from "@/config/site";
 import { IconInstagram, IconThreads, IconLinkedIn, IconTikTok } from "@/components/social-icons";
 import Reveal from "@/components/Reveal";
+import Container from "@/components/Container";
 
 const socialLinks = [
   { href: site.social.threads, label: "Threads", Icon: IconThreads },
@@ -12,7 +13,8 @@ const socialLinks = [
 export default function Contact() {
   return (
     <section id="contacto" className="relative overflow-hidden border-t border-border py-24">
-      <Reveal className="relative z-10 mx-auto max-w-2xl px-6 text-center">
+      <Container className="relative z-10">
+      <Reveal className="mx-auto max-w-2xl text-center">
         <span className="font-mono text-sm text-accent">03 · Contacto</span>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
           ¿Listo para caminar juntos?
@@ -43,6 +45,7 @@ export default function Contact() {
           ))}
         </div>
       </Reveal>
+      </Container>
     </section>
   );
 }

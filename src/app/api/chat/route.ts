@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { site, services } from "@/config/site";
+import { site, services, featuredServices } from "@/config/site";
 
 export const maxDuration = 30;
 
@@ -23,7 +23,9 @@ function isRateLimited(ip: string) {
   return timestamps.length > RATE_LIMIT;
 }
 
-const servicesFacts = services.map((s) => `${s.title} — ${s.description}`).join(" / ");
+const servicesFacts = [...featuredServices, ...services]
+  .map((s) => `${s.title} — ${s.description}`)
+  .join(" / ");
 
 // Agrupado por categoría para que, en preguntas generales, el modelo pueda
 // dar un panorama completo sin tener que leer los 10 servicios uno por uno.
