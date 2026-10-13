@@ -1,27 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0907;
-  --surface: #13110d;
-  --border: #2e2820;
-  --border-strong: #3d3529;
+  /* Base */
+  --background: #0a0907;     /* fondo general (negro cálido) */
+  --surface: #13110d;        /* tarjetas, paneles, menús */
+  --border: #2e2820;         /* bordes y divisores */
+  --border-strong: #3d3529;  /* bordes con énfasis, hover */
 
-  --foreground: #ede6da;
-  --muted: #a39a8c;
+  /* Texto */
+  --foreground: #ede6da;     /* texto principal (blanco cálido) */
+  --muted: #a39a8c;          /* texto secundario */
 
-  /* Ámbar: lo accionable (botones, enlaces, palabras clave) */
-  --accent: #ffb224;
-  --accent-hover: #ffc24f;
-  --on-accent: #1a1205;
+  /* Acentos */
+  --accent: #ffb224;         /* ámbar: botones, enlaces, palabras clave */
+  --accent-hover: #ffc24f;   /* hover del acento */
+  --accent-2: #ff7a45;       /* naranja coral: detalles y degradados */
+  --on-accent: #1a1205;      /* texto sobre botones ámbar */
 
-  /* Coral: solo detalle (íconos, esquinas de la foto). Nunca texto ni botones */
-  --accent-2: #ff7a45;
-
-  /* Degradado: solo en el título principal */
+  /* Efectos */
   --gradient-accent: linear-gradient(90deg, #ffb224, #ff7a45);
-
-  /* Resplandor: tono claro, baja opacidad, uno solo y pequeño */
-  --glow-accent: rgba(255, 194, 79, 0.07);
+  --glow-accent: rgba(255, 178, 36, 0.18);
   --grid-line: rgba(237, 230, 218, 0.04);
 }
 
