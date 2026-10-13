@@ -111,7 +111,7 @@ export default function ChatWidget() {
                 key={i}
                 className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
                   m.role === "user"
-                    ? "ml-auto bg-accent text-white"
+                    ? "ml-auto bg-accent text-on-accent"
                     : "bg-background/60 text-foreground border border-border"
                 }`}
               >
@@ -131,7 +131,7 @@ export default function ChatWidget() {
             <button
               type="submit"
               disabled={loading || notConfigured || !input.trim()}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-white transition-transform enabled:hover:scale-105 disabled:opacity-40"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent transition-transform enabled:hover:scale-105 enabled:hover:bg-accent-hover disabled:opacity-40"
               aria-label="Enviar"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
@@ -145,7 +145,7 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Cerrar chat" : "Abrir chat"}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-[0_0_30px_-6px_var(--accent)] transition-transform hover:scale-105"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-on-accent shadow-[0_0_30px_-6px_var(--accent)] transition-transform hover:scale-105 hover:bg-accent-hover"
       >
         {open ? (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
