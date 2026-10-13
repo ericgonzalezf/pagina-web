@@ -5,6 +5,9 @@ import Marquee from "@/components/Marquee";
 export default function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden pt-24">
+      <div className="glow left-1/2 top-24 h-72 w-72 -translate-x-1/2 bg-accent md:h-96 md:w-96" />
+      <div className="glow bottom-0 right-0 h-72 w-72 bg-accent-2" />
+
       <div className="relative z-10 mx-auto grid min-h-[calc(100vh-96px)] max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-[1.1fr_0.9fr]">
         <div>
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-xs text-muted">
@@ -34,7 +37,7 @@ export default function Hero() {
         </div>
 
         <div className="relative mx-auto">
-          <div className="spotlight -inset-24" />
+          <div className="glow inset-0 h-full w-full bg-accent" />
 
           <div className="relative h-64 w-64 sm:h-80 sm:w-80">
             {/* HUD corner brackets */}
