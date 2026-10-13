@@ -23,7 +23,7 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#contacto"
-              className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-on-accent shadow-[0_0_30px_-6px_var(--accent)] transition-transform hover:scale-105 hover:bg-accent-hover"
+              className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-white shadow-[0_0_30px_-6px_var(--accent)] transition-transform hover:scale-105"
             >
               Hablemos de tu proyecto
             </a>
@@ -59,13 +59,13 @@ export default function Hero() {
             </div>
 
             <span className="absolute -right-6 top-6 flex items-center gap-1.5 rounded-full border border-border bg-surface/90 px-3 py-1.5 font-mono text-xs shadow-lg backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-2" /> IA
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> IA
             </span>
             <span className="absolute -left-8 bottom-16 flex items-center gap-1.5 rounded-full border border-border bg-surface/90 px-3 py-1.5 font-mono text-xs shadow-lg backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-2" /> Web
             </span>
             <span className="absolute -right-4 bottom-2 flex items-center gap-1.5 rounded-full border border-border bg-surface/90 px-3 py-1.5 font-mono text-xs shadow-lg backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-2" /> Chatbots
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Chatbots
             </span>
           </div>
         </div>

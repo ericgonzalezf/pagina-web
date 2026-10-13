@@ -1,26 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  /* Base */
-  --background: #0a0907;
-  --surface: #13110d;
-  --border: #2e2820;
-  --border-strong: #3d3529;
-
-  /* Texto */
-  --foreground: #ede6da;
-  --muted: #a39a8c;
-
-  /* Acentos */
-  --accent: #ffb224;
-  --accent-hover: #ffc24f;
-  --accent-2: #ff7a45;
-  --on-accent: #1a1205;
-
-  /* Efectos */
-  --gradient-accent: linear-gradient(90deg, #ffb224, #ff7a45);
-  --glow-accent: rgba(255, 178, 36, 0.07);
-  --grid-line: rgba(237, 230, 218, 0.04);
+  --background: #05060a;
+  --surface: #0d0f16;
+  --foreground: #f3f4f6;
+  --muted: #9099ab;
+  --border: #1e2130;
+  --border-strong: #2a2e42;
+  --accent: #7c5cff;
+  --accent-2: #22d3ee;
 }
 
 @theme inline {
@@ -31,9 +19,7 @@
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
   --color-accent-2: var(--accent-2);
-  --color-on-accent: var(--on-accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -44,8 +30,8 @@ html {
 
 body {
   background:
-    radial-gradient(ellipse 900px 500px at 15% -10%, var(--glow-accent), transparent),
-    radial-gradient(ellipse 700px 500px at 100% 10%, color-mix(in srgb, var(--accent-2) 5%, transparent), transparent),
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(124, 92, 255, 0.16), transparent),
+    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(34, 211, 238, 0.1), transparent),
     var(--background);
   color: var(--foreground);
   position: relative;
@@ -59,8 +45,8 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
 }
@@ -82,7 +68,7 @@ main, footer {
 }
 
 .text-gradient {
-  background: var(--gradient-accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -91,8 +77,8 @@ main, footer {
 .glow {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.12;
+  filter: blur(110px);
+  opacity: 0.35;
   pointer-events: none;
   z-index: 0;
 }
@@ -182,7 +168,7 @@ main, footer {
   width: 0.55ch;
   height: 1em;
   margin-left: 2px;
-  background: var(--accent);
+  background: var(--accent-2);
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
 }
@@ -190,13 +176,13 @@ main, footer {
 /* Pulsing status dot */
 @keyframes pulse-dot {
   0% {
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-2) 55%, transparent);
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.55);
   }
   70% {
-    box-shadow: 0 0 0 8px transparent;
+    box-shadow: 0 0 0 8px rgba(34, 211, 238, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);
   }
 }
 

@@ -7,7 +7,7 @@ export default function Services() {
     <section id="servicios" className="relative border-t border-border py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
-          <span className="font-mono text-sm text-accent">02 · Servicios</span>
+          <span className="font-mono text-sm text-accent-2">02 · Servicios</span>
           <h2 className="mt-3 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">
             En qué puedo ayudarte
           </h2>
