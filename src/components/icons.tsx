@@ -1,111 +1,80 @@
-export function IconWeb(props: React.SVGProps<SVGSVGElement>) {
+import type { SVGProps } from "react";
+
+type IconProps = SVGProps<SVGSVGElement>;
+
+function Svg({ children, strokeWidth = 2, ...props }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      {children}
     </svg>
   );
 }
 
-export function IconChat(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <path d="M4 5h16v11H8l-4 4V5Z" strokeLinejoin="round" />
-      <path d="M8 10h8M8 13h5" strokeLinecap="round" />
-    </svg>
-  );
-}
+export const IconWhatsApp = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z" />
+  </Svg>
+);
 
-export function IconBrand(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <path d="M12 3 2 8l10 5 10-5-10-5Z" strokeLinejoin="round" />
-      <path d="M2 16l10 5 10-5M2 12l10 5 10-5" strokeLinejoin="round" />
-    </svg>
-  );
-}
+export const IconCheck = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M5 12.5l4.5 4.5L19 7.5" />
+  </Svg>
+);
 
-export function IconConsulting(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" strokeLinecap="round" />
-      <circle cx="12" cy="12" r="4" />
-    </svg>
-  );
-}
+export const IconArrow = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </Svg>
+);
 
-export function IconAutomation(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <circle cx="5" cy="6" r="2.2" />
-      <circle cx="19" cy="12" r="2.2" />
-      <circle cx="5" cy="18" r="2.2" />
-      <path d="M7.2 6h4a4 4 0 0 1 4 4v0M7.2 18h4a4 4 0 0 0 4-4v0" />
-    </svg>
-  );
-}
+export const IconDiagnostico = (p: IconProps) => (
+  <Svg strokeWidth={1.8} {...p}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="M20 20l-4-4M8 11h6M11 8v6" />
+  </Svg>
+);
 
-export function IconBrain(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <circle cx="12" cy="6" r="2.4" />
-      <circle cx="5" cy="17" r="2.4" />
-      <circle cx="19" cy="17" r="2.4" />
-      <path d="M12 8.4V12M12 12 6.6 15.2M12 12l5.4 3.2" strokeLinecap="round" />
-    </svg>
-  );
-}
+export const IconAprende = (p: IconProps) => (
+  <Svg strokeWidth={1.8} {...p}>
+    <path d="M3 8l9-4 9 4-9 4z" />
+    <path d="M7 10v5c0 1.5 2.2 3 5 3s5-1.5 5-3v-5" />
+  </Svg>
+);
 
-export function IconAudit(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <rect x="4" y="3" width="12" height="16" rx="1.5" />
-      <path d="M7.5 8h5M7.5 11.5h5M7.5 15h2.5" strokeLinecap="round" />
-      <circle cx="16.5" cy="16.5" r="3" />
-      <path d="M18.7 18.7 21 21" strokeLinecap="round" />
-    </svg>
-  );
-}
+export const IconYouTube = (p: IconProps) => (
+  <Svg {...p}>
+    <rect x="2.5" y="5.5" width="19" height="13" rx="4" />
+    <path d="M10 9.5l5 2.5-5 2.5z" />
+  </Svg>
+);
 
-export function IconContent(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <path d="M5 3h9l5 5v13H5V3Z" strokeLinejoin="round" />
-      <path d="M14 3v5h5" strokeLinejoin="round" />
-      <path d="M17.5 10.5 8 20l-2.5.5.5-2.5 9.5-9.5a1.4 1.4 0 0 1 2 2Z" strokeLinejoin="round" />
-    </svg>
-  );
-}
+export const IconInstagram = (p: IconProps) => (
+  <Svg strokeWidth={1.8} {...p}>
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="0.8" />
+  </Svg>
+);
 
-export function IconSupport(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <path
-        d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 1 5.4-5.4l-2.6 2.6-2-2 2.6-2.6Z"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+export const IconThreads = (p: IconProps) => (
+  <Svg strokeWidth={1.8} {...p}>
+    <path d="M16.5 11.5c-.5-3-2.5-4.5-5-4.5-3 0-5 2.5-5 5.5S8.5 18 12 18c3 0 5-1.8 5-4.3 0-2-1.6-3.2-4-3.2-2 0-3.2 1-3.2 2.3s1 2 2.3 2c2 0 3.4-1.6 3.4-4.8" />
+  </Svg>
+);
 
-export function IconProduct(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5v-9Z" strokeLinejoin="round" />
-      <path d="M3.5 7.5 12 12l8.5-4.5M12 12v9" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export const icons = {
-  web: IconWeb,
-  chat: IconChat,
-  brand: IconBrand,
-  consulting: IconConsulting,
-  automation: IconAutomation,
-  brain: IconBrain,
-  audit: IconAudit,
-  content: IconContent,
-  support: IconSupport,
-  product: IconProduct,
-};
+export const IconTikTok = (p: IconProps) => (
+  <Svg strokeWidth={1.8} {...p}>
+    <path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5" />
+    <path d="M14 3c.5 2.5 2.5 4.5 5 4.5" />
+  </Svg>
+);

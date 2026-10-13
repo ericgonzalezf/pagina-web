@@ -97,11 +97,11 @@ export default function ChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-[76px] right-3 z-50 flex flex-col items-end gap-3 sm:bottom-[108px] sm:right-7">
       {open && (
-        <div className="flex h-[28rem] w-[22rem] max-w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border border-border bg-surface/95 shadow-2xl backdrop-blur">
+        <div className="flex h-[28rem] max-h-[calc(100dvh-13rem)] w-[22rem] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-border bg-surface/95 shadow-2xl backdrop-blur">
           <div className="flex items-center gap-2 border-b border-border px-4 py-3">
-            <span className="status-dot h-1.5 w-1.5 rounded-full bg-accent-2" />
+            <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_6px_var(--accent)]" />
             <span className="font-mono text-sm">Asistente de {site.name.split(" ")[0]}</span>
           </div>
 
@@ -131,7 +131,7 @@ export default function ChatWidget() {
             <button
               type="submit"
               disabled={loading || notConfigured || !input.trim()}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent transition-transform enabled:hover:scale-105 enabled:hover:bg-accent-hover disabled:opacity-40"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent transition-transform enabled:hover:scale-105 enabled:hover:bg-accent-highlight disabled:opacity-40"
               aria-label="Enviar"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
@@ -145,7 +145,7 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Cerrar chat" : "Abrir chat"}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-on-accent shadow-[0_0_30px_-6px_var(--accent)] transition-transform hover:scale-105 hover:bg-accent-hover"
+        className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-accent text-on-accent sm:h-14 sm:w-14 shadow-[0_0_30px_-6px_var(--accent)] transition-transform hover:scale-105 hover:bg-accent-highlight"
       >
         {open ? (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">

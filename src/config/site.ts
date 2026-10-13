@@ -4,102 +4,37 @@ export const site = {
   domain: "ericgonzalezf.com",
   title: "Eric González | IA aplicada sin tecnicismos",
   description:
-    "Consultor en inteligencia artificial, desarrollo web y marca personal. IA aplicada sin tecnicismos — nunca es tarde para empezar.",
+    "Te enseño a usar inteligencia artificial y la pongo a trabajar en tu negocio, en tu trabajo y en tu vida diaria. IA aplicada sin tecnicismos — nunca es tarde para empezar.",
   tagline: "IA aplicada sin tecnicismos.",
   subtagline: "Nunca es tarde. IA para todos — caminemos juntos.",
+  trayectoria: "25 años emprendiendo · IA después de los 40",
   email: "contacto@ericgonzalezf.com",
   whatsapp: "525610738845",
+  marcaUrl: "https://marca.ericgonzalezf.com/",
   social: {
-    threads: "https://www.threads.net/@ericgonzalez.ia",
     instagram: "https://www.instagram.com/ericgonzalez.ia",
-    linkedin: "#",
+    threads: "https://www.threads.net/@ericgonzalez.ia",
     tiktok: "https://www.tiktok.com/@ericgonzalez.ia",
+    youtube: "https://www.youtube.com/@EricGonzalezIA",
   },
 };
+
+// Precio de la "Estrategia completa": se edita solo aquí.
+export const PRECIO_ESTRATEGIA = "$497 MXN";
 
 export const nav = [
-  { label: "Inicio", href: "#inicio" },
   { label: "Sobre mí", href: "#sobre-mi" },
   { label: "Servicios", href: "#servicios" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Marca personal", href: "#marca" },
+  { label: "Diagnóstico", href: "#diagnostico" },
+  { label: "Cómo trabajo", href: "#proceso" },
 ];
 
-export const featuredServices = [
-  {
-    title: "Tu negocio atendiendo en WhatsApp con IA",
-    description:
-      "Un asistente que responde, agenda y vende por WhatsApp las 24 horas, entrenado con la información de tu negocio.",
-    icon: "chat",
-  },
-  {
-    title: "Descubre dónde la IA ahorra tiempo en tu negocio",
-    description:
-      "Un diagnóstico claro de tus procesos y un plan paso a paso para aplicar IA donde realmente te ahorra tiempo y dinero.",
-    icon: "audit",
-  },
-  {
-    title: "Tu página web profesional, lista para vender",
-    description:
-      "Un sitio moderno, rápido y hecho a la medida, que presenta tu negocio con claridad y te ayuda a conseguir clientes.",
-    icon: "web",
-  },
+export const stripServices = [
+  "WhatsApp con IA",
+  "Automatización",
+  "Diagnóstico de IA",
+  "Capacitación",
+  "Marca personal",
+  "Páginas web",
 ];
-
-export const services = [
-  {
-    title: "Chatbots con IA",
-    description:
-      "Asistentes conversacionales personalizados para atención al cliente, ventas o soporte, entrenados con el conocimiento de tu negocio.",
-    icon: "chat",
-  },
-  {
-    title: "Automatización de Negocios con IA",
-    description:
-      "WhatsApp, Instagram y flujos internos (n8n, Make) que atienden, agendan y venden solos — para que dejes de repetir las mismas tareas todos los días.",
-    icon: "automation",
-  },
-  {
-    title: "Agentes Internos con IA",
-    description:
-      "Un asistente entrenado con los documentos y procesos de tu empresa, para que tu equipo encuentre respuestas al instante sin buscar en mil archivos.",
-    icon: "brain",
-  },
-  {
-    title: "Consultoría en IA",
-    description:
-      "Acompañamiento continuo para implementar y ajustar soluciones de inteligencia artificial en tu negocio, sin tecnicismos y con resultados medibles.",
-    icon: "consulting",
-  },
-  {
-    title: "Marca Personal",
-    description:
-      "Estrategia, posicionamiento y optimización de tus perfiles (LinkedIn, Instagram, Threads) para que tu nombre sea tu mejor carta de presentación.",
-    icon: "brand",
-  },
-  {
-    title: "Contenido y Creatividad con IA",
-    description:
-      "Posts, guiones, imágenes y calendario editorial generados con IA — contenido constante para tu marca sin que te consuma el día.",
-    icon: "content",
-  },
-  {
-    title: "Mantenimiento y Soporte Mensual",
-    description:
-      "Actualizo, cuido y mejoro tu web o chatbot mes a mes, para que nunca tengas que preocuparte por que algo deje de funcionar.",
-    icon: "support",
-  },
-  {
-    title: "Recursos y Plantillas con IA",
-    description:
-      "Plantillas, prompts y mini-guías listas para usar, para que apliques IA en tu negocio desde el primer día sin empezar de cero.",
-    icon: "product",
-  },
-];
-
-export const about = {
-  heading: "Sobre mí",
-  paragraphs: [
-    "Soy Eric González. Me dedico a la inteligencia artificial: construyo páginas web, chatbots y marcas personales para personas y negocios que quieren dar el salto digital sin perderse en tecnicismos.",
-    "Creo que la IA no es solo para expertos — es una herramienta que, bien aplicada, puede transformar la forma en que trabajas, vendes y te presentas al mundo. Por eso mi lema es simple: nunca es tarde, y la IA es para todos. Caminemos juntos.",
-  ],
-};

@@ -1,80 +1,105 @@
 import Image from "next/image";
 import { site } from "@/config/site";
-import Marquee from "@/components/Marquee";
+import { waLink, WA_SALUDO } from "@/lib/whatsapp";
+import { IconWhatsApp } from "@/components/icons";
 import Container from "@/components/Container";
+import HeroLight from "@/components/HeroLight";
+
+const corner =
+  "absolute h-11 w-11 border-accent-highlight [filter:drop-shadow(0_0_6px_rgba(255,138,31,0.9))]";
+
+const floatLabel =
+  "absolute flex items-center gap-2 rounded-full border border-accent/55 bg-surface/90 px-3.5 py-2 font-mono text-[13px] text-foreground shadow-[0_0_14px_rgba(255,138,31,0.22)]";
+
+function Dot({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`rounded-full bg-accent shadow-[0_0_6px_var(--accent)] ${className}`}
+    />
+  );
+}
 
 export default function Hero() {
   return (
-    <section id="inicio" className="relative overflow-hidden pt-24">
-      <Container className="relative z-10 grid min-h-[calc(100vh-96px)] grid-cols-1 items-center gap-12 py-16 md:min-h-0 md:grid-cols-[1.1fr_0.9fr] md:py-12">
-        <div>
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-xs text-muted">
-            <span className="status-dot h-1.5 w-1.5 rounded-full bg-accent-2" />
+    <section id="inicio" className="sec-hero relative overflow-hidden">
+      <HeroLight />
+
+      <Container className="relative flex flex-wrap items-center gap-x-16 gap-y-14 pb-20 pt-14 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
+        <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-7">
+          <div className="flex items-center gap-2.5 self-start rounded-full border border-accent/40 bg-surface/80 px-4 py-2 font-mono text-[13px] text-foreground shadow-[0_0_18px_rgba(255,138,31,0.12)]">
+            <Dot className="h-[7px] w-[7px] shadow-[0_0_8px_var(--accent),0_0_0_4px_rgba(255,138,31,0.18)]" />
             Disponible para nuevos proyectos
           </div>
 
-          <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-            <span className="text-gradient">{site.tagline}</span>
+          <h1 className="m-0 text-[clamp(48px,7vw,88px)] font-bold leading-none tracking-[-0.04em] text-foreground">
+            IA aplicada
+            <br />
+            <span className="text-brand">sin tecnicismos.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-muted">{site.subtagline}</p>
 
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-xs text-muted">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent-2" />
-            25 años emprendiendo · IA después de los 40
+          <p className="m-0 max-w-[520px] text-lg leading-[1.55] text-muted sm:text-xl">
+            Te enseño a usar inteligencia artificial y la pongo a trabajar en tu negocio, en tu
+            trabajo y en tu vida diaria.{" "}
+            <span className="text-foreground">{site.subtagline}</span>
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={waLink(WA_SALUDO)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary inline-flex min-h-[52px] items-center gap-2.5 rounded-full px-[26px] text-base"
+            >
+              <IconWhatsApp className="h-5 w-5" />
+              Escríbeme por WhatsApp
+            </a>
+            <a
+              href="#diagnostico"
+              className="btn btn-ghost inline-flex min-h-[52px] items-center rounded-full px-[26px] text-base"
+            >
+              Haz tu diagnóstico gratis
+            </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#contacto"
-              className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-on-accent shadow-[0_0_30px_-6px_var(--accent)] transition-transform hover:scale-105 hover:bg-accent-hover"
-            >
-              Hablemos de tu proyecto
-            </a>
-            <a
-              href="#servicios"
-              className="rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
-            >
-              Ver servicios
-            </a>
+          <div className="flex items-center gap-3.5 pt-2 font-mono text-[13px] text-muted">
+            <span className="h-px w-8 shrink-0 bg-accent shadow-[0_0_6px_var(--accent)]" />
+            {site.trayectoria}
           </div>
         </div>
 
-        <div className="relative mx-auto">
-          <div className="glow -inset-16" />
+        <div className="flex min-w-0 flex-[1_1_340px] justify-center">
+          <div className="relative aspect-square w-[360px] max-w-full">
+            <div className={`${corner} left-0 top-0 rounded-tl-[14px] border-l-2 border-t-2`} />
+            <div className={`${corner} right-0 top-0 rounded-tr-[14px] border-r-2 border-t-2`} />
+            <div className={`${corner} bottom-0 left-0 rounded-bl-[14px] border-b-2 border-l-2`} />
+            <div className={`${corner} bottom-0 right-0 rounded-br-[14px] border-b-2 border-r-2`} />
 
-          <div className="relative h-64 w-64 sm:h-80 sm:w-80">
-            {/* HUD corner brackets */}
-            <span className="absolute -left-3 -top-3 h-8 w-8 rounded-tl-2xl border-l-2 border-t-2 border-accent-2" />
-            <span className="absolute -right-3 -top-3 h-8 w-8 rounded-tr-2xl border-r-2 border-t-2 border-accent-2" />
-            <span className="absolute -bottom-3 -left-3 h-8 w-8 rounded-bl-2xl border-b-2 border-l-2 border-accent-2" />
-            <span className="absolute -bottom-3 -right-3 h-8 w-8 rounded-br-2xl border-b-2 border-r-2 border-accent-2" />
-
-            <div className="relative h-full w-full overflow-hidden rounded-full border border-border shadow-2xl">
+            <div className="absolute inset-[8%] overflow-hidden rounded-full border-2 border-accent bg-surface shadow-[0_0_0_1px_rgba(255,178,36,0.35),0_0_22px_rgba(255,138,31,0.55),0_0_70px_rgba(255,138,31,0.22),0_30px_70px_rgba(0,0,0,0.6)] max-sm:shadow-[0_0_0_1px_rgba(255,178,36,0.3),0_0_16px_rgba(255,138,31,0.4),0_0_44px_rgba(255,138,31,0.16),0_24px_50px_rgba(0,0,0,0.6)]">
               <Image
-                src="/images/eric.webp"
+                src="/images/foto-eric.webp"
                 alt="Eric González"
                 fill
                 priority
-                sizes="(min-width: 640px) 320px, 256px"
-                className="object-cover"
+                sizes="(min-width: 640px) 360px, 90vw"
+                className="scale-[1.06] object-cover"
               />
-              <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/10" />
             </div>
 
-            <span className="absolute -right-6 top-6 flex items-center gap-1.5 rounded-full border border-border bg-surface/90 px-3 py-1.5 font-mono text-xs shadow-lg backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-2" /> IA
-            </span>
-            <span className="absolute -left-8 bottom-16 flex items-center gap-1.5 rounded-full border border-border bg-surface/90 px-3 py-1.5 font-mono text-xs shadow-lg backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-2" /> Web
-            </span>
-            <span className="absolute -right-4 bottom-2 flex items-center gap-1.5 rounded-full border border-border bg-surface/90 px-3 py-1.5 font-mono text-xs shadow-lg backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-2" /> Chatbots
-            </span>
+            <div className={`${floatLabel} right-0 top-[14%] sm:-right-[6%]`}>
+              <Dot className="h-1.5 w-1.5" />
+              IA
+            </div>
+            <div className={`${floatLabel} left-0 top-1/2 sm:-left-[10%]`}>
+              <Dot className="h-1.5 w-1.5" />
+              WhatsApp
+            </div>
+            <div className={`${floatLabel} bottom-[10%] right-0 sm:-right-[4%]`}>
+              <Dot className="h-1.5 w-1.5" />
+              Automatización
+            </div>
           </div>
         </div>
       </Container>
-
-      <Marquee />
     </section>
   );
 }

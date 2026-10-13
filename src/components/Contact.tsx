@@ -1,50 +1,71 @@
 import { site } from "@/config/site";
-import { IconInstagram, IconThreads, IconLinkedIn, IconTikTok } from "@/components/social-icons";
-import Reveal from "@/components/Reveal";
+import { waLink, WA_SALUDO } from "@/lib/whatsapp";
+import {
+  IconInstagram,
+  IconThreads,
+  IconTikTok,
+  IconWhatsApp,
+  IconYouTube,
+} from "@/components/icons";
 import Container from "@/components/Container";
 
 const socialLinks = [
-  { href: site.social.threads, label: "Threads", Icon: IconThreads },
   { href: site.social.instagram, label: "Instagram", Icon: IconInstagram },
-  { href: site.social.linkedin, label: "LinkedIn", Icon: IconLinkedIn },
+  { href: site.social.threads, label: "Threads", Icon: IconThreads },
   { href: site.social.tiktok, label: "TikTok", Icon: IconTikTok },
+  { href: site.social.youtube, label: "YouTube", Icon: IconYouTube },
 ];
 
 export default function Contact() {
   return (
-    <section id="contacto" className="relative overflow-hidden border-t border-border py-24">
-      <Container className="relative z-10">
-      <Reveal className="mx-auto max-w-2xl text-center">
-        <span className="font-mono text-sm text-accent">03 · Contacto</span>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          ¿Listo para caminar juntos?
+    <section
+      id="contacto"
+      className="sec-contacto relative overflow-hidden border-t border-accent/50"
+    >
+      <Container className="relative flex flex-col items-center gap-7 py-24 text-center sm:py-32">
+        <div className="font-mono text-sm text-accent">06 · Contacto</div>
+        <h2 className="m-0 text-[clamp(44px,6.5vw,84px)] font-bold leading-none tracking-[-0.04em] text-foreground">
+          ¿Listo para
+          <br />
+          <span className="text-brand">caminar juntos?</span>
         </h2>
-        <p className="mt-4 text-lg text-muted">
-          Cuéntame sobre tu proyecto de IA, tu página web o tu marca personal. Te respondo directamente.
+        <p className="m-0 max-w-[560px] text-lg leading-[1.55] text-muted sm:text-xl">
+          Cuéntame de tu negocio o de lo que quieres aprender. Te respondo yo, directamente.
         </p>
 
-        <a
-          href={`mailto:${site.email}`}
-          className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-medium text-on-accent shadow-[0_0_30px_-6px_var(--accent)] transition-transform hover:scale-105 hover:bg-accent-hover"
-        >
-          <span className="font-mono text-on-accent/70">&gt;</span> {site.email}
-        </a>
-
-        <div className="mt-12 flex justify-center gap-4">
-          {socialLinks.map(({ href, label, Icon }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent"
-            >
-              <Icon className="h-5 w-5" />
-            </a>
-          ))}
+        <div className="flex flex-wrap justify-center gap-3 pt-2">
+          <a
+            href={waLink(WA_SALUDO)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary inline-flex min-h-14 items-center gap-2.5 rounded-full px-[30px] text-[17px]"
+          >
+            <IconWhatsApp className="h-5 w-5" />
+            Escríbeme por WhatsApp
+          </a>
+          <a
+            href={`mailto:${site.email}`}
+            className="btn btn-ghost inline-flex min-h-14 items-center rounded-full px-[30px] text-[17px]"
+          >
+            {site.email}
+          </a>
         </div>
-      </Reveal>
+
+        <ul className="m-0 flex list-none gap-3 p-0 pt-4">
+          {socialLinks.map(({ href, label, Icon }) => (
+            <li key={label}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex h-[46px] w-[46px] items-center justify-center rounded-full border border-accent/45 text-foreground hover:border-accent hover:text-accent-highlight"
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   );

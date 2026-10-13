@@ -1,62 +1,29 @@
-import { about } from "@/config/site";
-import Reveal from "@/components/Reveal";
 import Container from "@/components/Container";
+import Terminal from "@/components/Terminal";
 
 export default function About() {
   return (
-    <section id="sobre-mi" className="relative border-t border-border py-24">
-      <Container className="grid grid-cols-1 gap-12 md:grid-cols-[1.05fr_0.95fr] md:items-center">
-        <Reveal>
-          <span className="font-mono text-sm text-accent">01 · {about.heading}</span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Nunca es tarde para empezar.
+    <section id="sobre-mi" className="sec-about border-b border-border">
+      <Container className="flex flex-wrap items-center gap-x-16 gap-y-12 py-20 md:py-28">
+        <div className="flex min-w-0 flex-[1_1_440px] flex-col gap-[22px]">
+          <div className="font-mono text-sm text-accent">01 · Sobre mí</div>
+          <h2 className="m-0 text-[clamp(38px,5vw,60px)] font-bold leading-[1.05] tracking-[-0.035em] text-foreground">
+            Nunca es tarde
+            <br />
+            para empezar.
           </h2>
+          <p className="m-0 text-lg leading-[1.65] text-muted">
+            Soy Eric González. Empecé con la inteligencia artificial después de los 40, con 25 años
+            de emprendedor encima. Sé lo que se siente pensar que la IA no es para ti.
+          </p>
+          <p className="m-0 text-lg leading-[1.65] text-muted">
+            Por eso enseño IA sin tecnicismos y la aplico en negocios reales: para que trabajes
+            menos, vendas más y{" "}
+            <span className="text-foreground">te sientas parte del cambio, no víctima de él.</span>
+          </p>
+        </div>
 
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted">
-            {about.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={150}>
-          <div className="overflow-hidden rounded-2xl border border-border bg-surface/70 shadow-2xl">
-            <div className="flex items-center gap-2 border-b border-border px-4 py-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-              <span className="ml-3 font-mono text-xs text-muted">~/eric</span>
-            </div>
-
-            <div className="space-y-3 p-6 font-mono text-sm leading-relaxed">
-              <p className="text-muted">
-                <span className="text-accent">$</span> quien-soy
-              </p>
-              <p className="pl-4 text-foreground">
-                Eric — 25 años emprendiendo, IA después de los 40
-              </p>
-
-              <p className="pt-2 text-muted">
-                <span className="text-accent">$</span> que-hago
-              </p>
-              <p className="pl-4 text-foreground">
-                Te enseño IA y la aplico en tu negocio
-              </p>
-
-              <p className="pt-2 text-muted">
-                <span className="text-accent">$</span> mision
-              </p>
-              <p className="pl-4 text-foreground">
-                &ldquo;Nunca es tarde. IA para todos — caminemos juntos.&rdquo;
-              </p>
-
-              <p className="pt-2 text-muted">
-                <span className="text-accent">$</span>
-                <span className="cursor-blink" />
-              </p>
-            </div>
-          </div>
-        </Reveal>
+        <Terminal />
       </Container>
     </section>
   );
