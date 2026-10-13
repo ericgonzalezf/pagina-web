@@ -59,13 +59,13 @@ export default function Hero() {
             </div>
 
             <span className="absolute -right-6 top-6 flex items-center gap-1.5 rounded-full border border-border bg-surface/90 px-3 py-1.5 font-mono text-xs shadow-lg backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> IA
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-2" /> IA
             </span>
             <span className="absolute -left-8 bottom-16 flex items-center gap-1.5 rounded-full border border-border bg-surface/90 px-3 py-1.5 font-mono text-xs shadow-lg backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-2" /> Web
             </span>
             <span className="absolute -right-4 bottom-2 flex items-center gap-1.5 rounded-full border border-border bg-surface/90 px-3 py-1.5 font-mono text-xs shadow-lg backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Chatbots
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-2" /> Chatbots
             </span>
           </div>
         </div>

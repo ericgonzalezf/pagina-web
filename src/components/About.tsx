@@ -6,7 +6,7 @@ export default function About() {
     <section id="sobre-mi" className="relative border-t border-border py-24">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-[1.05fr_0.95fr] md:items-center">
         <Reveal>
-          <span className="font-mono text-sm text-accent-2">01 · {about.heading}</span>
+          <span className="font-mono text-sm text-accent">01 · {about.heading}</span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             Nunca es tarde para empezar.
           </h2>
@@ -29,28 +29,28 @@ export default function About() {
 
             <div className="space-y-3 p-6 font-mono text-sm leading-relaxed">
               <p className="text-muted">
-                <span className="text-accent-2">$</span> quien-soy
+                <span className="text-accent">$</span> quien-soy
               </p>
               <p className="pl-4 text-foreground">
                 Eric — 25 años emprendiendo, IA después de los 40
               </p>
 
               <p className="pt-2 text-muted">
-                <span className="text-accent-2">$</span> que-hago
+                <span className="text-accent">$</span> que-hago
               </p>
               <p className="pl-4 text-foreground">
                 Te enseño IA y la aplico en tu negocio
               </p>
 
               <p className="pt-2 text-muted">
-                <span className="text-accent-2">$</span> mision
+                <span className="text-accent">$</span> mision
               </p>
               <p className="pl-4 text-foreground">
                 &ldquo;Nunca es tarde. IA para todos — caminemos juntos.&rdquo;
               </p>
 
               <p className="pt-2 text-muted">
-                <span className="text-accent-2">$</span>
+                <span className="text-accent">$</span>
                 <span className="cursor-blink" />
               </p>
             </div>
