@@ -15,7 +15,7 @@ export default function Contact() {
       <div className="glow left-1/2 top-0 h-80 w-80 -translate-x-1/2 bg-accent" />
 
       <Reveal className="relative z-10 mx-auto max-w-2xl px-6 text-center">
-        <span className="font-mono text-sm text-accent">03 · Contacto</span>
+        <span className="font-mono text-sm text-accent-2">03 · Contacto</span>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
           ¿Listo para caminar juntos?
         </h2>

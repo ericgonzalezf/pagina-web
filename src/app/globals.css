@@ -19,7 +19,7 @@
 
   /* Efectos */
   --gradient-accent: linear-gradient(90deg, #ffb224, #ff7a45);
-  --glow-accent: rgba(255, 178, 36, 0.07);
+  --glow-accent: rgba(255, 178, 36, 0.18);
   --grid-line: rgba(237, 230, 218, 0.04);
 }
 
@@ -45,7 +45,7 @@ html {
 body {
   background:
     radial-gradient(ellipse 900px 500px at 15% -10%, var(--glow-accent), transparent),
-    radial-gradient(ellipse 700px 500px at 100% 10%, color-mix(in srgb, var(--accent-2) 5%, transparent), transparent),
+    radial-gradient(ellipse 700px 500px at 100% 10%, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent),
     var(--background);
   color: var(--foreground);
   position: relative;
@@ -91,8 +91,8 @@ main, footer {
 .glow {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.12;
+  filter: blur(110px);
+  opacity: 0.35;
   pointer-events: none;
   z-index: 0;
 }
@@ -182,7 +182,7 @@ main, footer {
   width: 0.55ch;
   height: 1em;
   margin-left: 2px;
-  background: var(--accent);
+  background: var(--accent-2);
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
 }

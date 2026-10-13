@@ -12,7 +12,7 @@ export default function Header() {
         <a href="#inicio" className="flex items-center gap-2 font-mono text-lg font-semibold tracking-tight">
           <span className="status-dot h-1.5 w-1.5 rounded-full bg-accent-2" />
           <span>
-            eric<span className="text-accent">gonzalezf.com</span>
+            eric<span className="text-gradient">gonzalezf.com</span>
           </span>
         </a>
 
@@ -24,7 +24,7 @@ export default function Header() {
               className="group relative text-sm text-muted transition-colors hover:text-foreground"
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-accent to-accent-2 transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
