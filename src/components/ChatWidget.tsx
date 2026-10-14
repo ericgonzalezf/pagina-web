@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/config/site";
+import { waLink, WA_SALUDO } from "@/lib/whatsapp";
+import { IconWhatsApp } from "@/components/icons";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -97,9 +99,9 @@ export default function ChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-[76px] right-3 z-50 flex flex-col items-end gap-3 sm:bottom-[108px] sm:right-7">
+    <div className="fixed bottom-4 right-3 z-50 flex flex-col items-end gap-3 sm:bottom-7 sm:right-7">
       {open && (
-        <div className="flex h-[28rem] max-h-[calc(100dvh-13rem)] w-[22rem] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-border bg-surface/95 shadow-2xl backdrop-blur">
+        <div className="flex h-[30rem] max-h-[calc(100dvh-8rem)] w-[22rem] max-w-[calc(100vw-1.5rem)] flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl md:bg-surface/95 md:backdrop-blur">
           <div className="flex items-center gap-2 border-b border-border px-4 py-3">
             <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_6px_var(--accent)]" />
             <span className="font-mono text-sm">Asistente de {site.name.split(" ")[0]}</span>
@@ -120,7 +122,19 @@ export default function ChatWidget() {
             ))}
           </div>
 
-          <form onSubmit={sendMessage} className="flex items-center gap-2 border-t border-border p-3">
+          <div className="border-t border-border px-3 pt-3">
+            <a
+              href={waLink(WA_SALUDO)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-11 items-center justify-center gap-2 rounded-full border border-accent/55 text-sm font-medium !text-foreground hover:border-accent hover:bg-accent/[0.08]"
+            >
+              <IconWhatsApp className="h-[18px] w-[18px] text-accent" />
+              Hablar con Eric por WhatsApp
+            </a>
+          </div>
+
+          <form onSubmit={sendMessage} className="flex items-center gap-2 p-3">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -131,7 +145,7 @@ export default function ChatWidget() {
             <button
               type="submit"
               disabled={loading || notConfigured || !input.trim()}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent transition-transform enabled:hover:scale-105 enabled:hover:bg-accent-highlight disabled:opacity-40"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent transition-transform enabled:hover:scale-105 enabled:hover:bg-accent-highlight disabled:opacity-40"
               aria-label="Enviar"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
@@ -145,7 +159,8 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Cerrar chat" : "Abrir chat"}
-        className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-accent text-on-accent sm:h-14 sm:w-14 shadow-[0_0_30px_-6px_var(--accent)] transition-transform hover:scale-105 hover:bg-accent-highlight"
+        aria-expanded={open}
+        className="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-accent/60 bg-surface text-accent shadow-[0_0_20px_rgba(255,138,31,0.3),0_12px_30px_rgba(0,0,0,0.5)] transition-[transform,border-color] hover:scale-105 hover:border-accent max-md:shadow-[0_0_12px_rgba(255,138,31,0.25),0_8px_20px_rgba(0,0,0,0.5)] motion-reduce:transition-none motion-reduce:hover:scale-100 sm:h-[58px] sm:w-[58px]"
       >
         {open ? (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">

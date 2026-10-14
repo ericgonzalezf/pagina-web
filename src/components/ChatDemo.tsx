@@ -60,7 +60,7 @@ export default function ChatDemo() {
       ref={ref}
       role="group"
       aria-label="Ejemplo de conversación de WhatsApp atendida por IA"
-      className="w-[320px] max-w-full overflow-hidden rounded-[26px] border border-accent/50 bg-background shadow-[0_0_30px_rgba(255,138,31,0.2),0_30px_60px_rgba(0,0,0,0.55)]"
+      className="w-[320px] max-w-full overflow-hidden rounded-[26px] border border-accent/50 bg-background shadow-[0_0_30px_rgba(255,138,31,0.2),0_30px_60px_rgba(0,0,0,0.55)] max-md:shadow-[0_0_16px_rgba(255,138,31,0.16),0_16px_32px_rgba(0,0,0,0.5)]"
     >
       <div className="flex items-center gap-3 border-b border-border bg-surface px-4 py-3.5">
         <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-sm font-bold text-on-accent shadow-[0_0_12px_rgba(255,138,31,0.6)]">

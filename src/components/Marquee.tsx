@@ -22,7 +22,7 @@ export default function Marquee() {
   return (
     <div
       aria-label="Servicios"
-      className="overflow-hidden bg-accent py-[18px] text-on-accent shadow-[0_0_40px_rgba(255,138,31,0.35)]"
+      className="overflow-hidden bg-accent py-[18px] text-on-accent shadow-[0_0_40px_rgba(255,138,31,0.35)] max-md:shadow-[0_0_20px_rgba(255,138,31,0.25)]"
     >
       <div className="marquee-track">
         <Copy />

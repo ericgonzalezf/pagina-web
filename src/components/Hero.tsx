@@ -6,7 +6,7 @@ import Container from "@/components/Container";
 import HeroLight from "@/components/HeroLight";
 
 const corner =
-  "absolute h-11 w-11 border-accent-highlight [filter:drop-shadow(0_0_6px_rgba(255,138,31,0.9))]";
+  "absolute h-11 w-11 border-accent-highlight md:[filter:drop-shadow(0_0_6px_rgba(255,138,31,0.9))]";
 
 const floatLabel =
   "absolute flex items-center gap-2 rounded-full border border-accent/55 bg-surface/90 px-3.5 py-2 font-mono text-[13px] text-foreground shadow-[0_0_14px_rgba(255,138,31,0.22)]";

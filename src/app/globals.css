@@ -263,6 +263,27 @@
     animation: marquee 70s linear infinite;
   }
 
+  /* Móvil: sin drop-shadow en textos grandes y brillos más cortos (scroll más fluido) */
+  @media (max-width: 767px) {
+    .text-brand {
+      filter: none;
+    }
+
+    .card-featured {
+      box-shadow:
+        0 0 0 1px rgba(255, 138, 31, 0.2),
+        0 0 18px rgba(255, 138, 31, 0.14),
+        inset 0 1px 0 rgba(255, 200, 140, 0.12);
+    }
+
+    .btn-primary,
+    .btn-primary:hover {
+      box-shadow:
+        0 0 0 1px rgba(255, 178, 36, 0.5),
+        0 0 14px rgba(255, 138, 31, 0.35);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .msg,
     .dot,

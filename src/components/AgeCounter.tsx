@@ -3,20 +3,24 @@
 import { useState } from "react";
 import { IconCheck } from "@/components/icons";
 import Container from "@/components/Container";
-import { createTimers, useStartOnView } from "@/lib/useStartOnView";
+import { createTimers, useRestartOnView } from "@/lib/useStartOnView";
 
 const AGES = [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70];
 
 // null = estado final estático (70, todas las edades encendidas y el remate completo)
 type Anim = { idx: number } | null;
 
+// Estado inicial: el número grande y la primera edad encendida arrancan juntos en 20.
+const INICIO: Anim = { idx: 0 };
+
 export default function AgeCounter() {
   const [anim, setAnim] = useState<Anim>(null);
 
-  const ref = useStartOnView<HTMLElement>(() => {
+  // Se reinicia cada vez que la sección vuelve a entrar en pantalla.
+  const ref = useRestartOnView<HTMLElement>(() => {
     const t = createTimers();
     let i = 0;
-    setAnim({ idx: 0 });
+    setAnim(INICIO);
 
     const step = () => {
       if (i < AGES.length - 1) {
@@ -29,7 +33,7 @@ export default function AgeCounter() {
     };
     t.later(step, 600);
     return () => t.clear();
-  });
+  }, () => setAnim(INICIO));
 
   const idx = anim ? anim.idx : AGES.length - 1;
   const done = !anim;

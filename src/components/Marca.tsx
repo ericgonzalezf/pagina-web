@@ -1,4 +1,4 @@
-import { PRECIO_ESTRATEGIA, site } from "@/config/site";
+import { MARCA_GRATIS_EN_APP, PRECIO_ESTRATEGIA, site } from "@/config/site";
 import { waLink } from "@/lib/whatsapp";
 import { IconArrow } from "@/components/icons";
 import Container from "@/components/Container";
@@ -12,10 +12,16 @@ const pasos = [
 const tonos = ["Cercano", "Experto", "Inspirador"];
 
 const ideas = [
-  "[Idea personalizada para tu público]",
-  "[Idea basada en tu experiencia]",
-  "[Idea para mostrar tu valor]",
+  "3 tareas que la IA te puede quitar esta semana",
+  "Empecé con IA después de los 40: lo que aprendí",
+  "Antes y después: un negocio atendiendo WhatsApp con IA",
 ];
+
+// Mientras la app no tenga versión gratuita, "gratis" se pide por WhatsApp.
+const gratisHref = MARCA_GRATIS_EN_APP
+  ? site.marcaUrl
+  : waLink("Hola Eric, quiero mi resumen de marca personal gratis.");
+const gratisLabel = MARCA_GRATIS_EN_APP ? "Descubre tu marca gratis" : "Quiero mi resumen gratis";
 
 const tierTitle = "m-0 text-[22px] font-bold text-foreground";
 const tierLabel = "font-mono text-[15px] text-accent";
@@ -53,12 +59,12 @@ export default function Marca() {
 
             <div className="flex flex-wrap items-center gap-x-[18px] gap-y-2">
               <a
-                href={site.marcaUrl}
+                href={gratisHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary inline-flex min-h-[54px] items-center gap-2.5 rounded-full px-7 text-base"
               >
-                Descubre tu marca gratis
+                {gratisLabel}
                 <IconArrow className="h-[18px] w-[18px]" strokeWidth={2.4} />
               </a>
               <a
@@ -78,13 +84,13 @@ export default function Marca() {
                 aria-hidden="true"
                 className="absolute inset-[24px_-4px_-12px_24px] rotate-3 rounded-[20px] border border-border bg-surface sm:inset-[24px_-16px_-16px_24px]"
               />
-              <div className="relative flex flex-col gap-5 rounded-[20px] border border-accent/50 bg-[linear-gradient(180deg,#17110b,#0f0b08)] p-6 shadow-[0_0_40px_rgba(255,138,31,0.18),0_40px_80px_rgba(0,0,0,0.5)] sm:p-[30px]">
+              <div className="relative flex flex-col gap-5 rounded-[20px] border border-accent/50 bg-[linear-gradient(180deg,#17110b,#0f0b08)] p-6 max-md:shadow-[0_0_20px_rgba(255,138,31,0.14),0_20px_40px_rgba(0,0,0,0.45)] shadow-[0_0_40px_rgba(255,138,31,0.18),0_40px_80px_rgba(0,0,0,0.5)] sm:p-[30px]">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex flex-col gap-1">
                     <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-accent">
                       Resumen de marca
                     </div>
-                    <div className="text-xl font-bold text-foreground">Tu nombre aquí</div>
+                    <div className="text-xl font-bold text-foreground">Eric González</div>
                   </div>
                   <div className="rounded-full border border-border-strong px-2.5 py-[5px] font-mono text-[11px] text-muted">
                     ejemplo
@@ -96,7 +102,8 @@ export default function Marca() {
                 <div className="flex flex-col gap-2">
                   <div className="font-mono text-xs text-muted">Propuesta de valor</div>
                   <div className="text-base leading-normal text-foreground">
-                    &quot;Ayudo a [tu público] a lograr [resultado] sin [su mayor obstáculo].&quot;
+                    &quot;Ayudo a personas y negocios que sienten que la IA no es para ellos a usarla
+                    sin tecnicismos.&quot;
                   </div>
                 </div>
 
@@ -141,7 +148,7 @@ export default function Marca() {
               Cuestionario corto y resumen de tu marca: propuesta de valor, tono y 3 ideas de
               contenido.
             </p>
-            <a href={site.marcaUrl} target="_blank" rel="noopener noreferrer" className={`${tierBtn} btn-outline`}>
+            <a href={gratisHref} target="_blank" rel="noopener noreferrer" className={`${tierBtn} btn-outline`}>
               Empezar gratis
             </a>
           </div>

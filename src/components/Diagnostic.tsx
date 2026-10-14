@@ -57,7 +57,7 @@ export default function Diagnostic() {
   return (
     <section id="diagnostico" className="sec-diag border-t border-border">
       <Container className="flex flex-wrap items-start gap-x-14 gap-y-10 py-20 md:py-28">
-        <div className="flex min-w-0 flex-[1_1_360px] flex-col gap-[18px] lg:max-w-[420px]">
+        <div className="flex min-w-0 flex-[1_1_360px] flex-col gap-[18px] lg:flex-[0_0_480px]">
           <div className="font-mono text-sm text-accent">04 · Diagnóstico gratis</div>
           <h2 className="m-0 text-[clamp(38px,5vw,56px)] font-bold leading-[1.05] tracking-[-0.035em] text-foreground">
             ¿Cuánto puede ayudarte la IA?
@@ -68,7 +68,7 @@ export default function Diagnostic() {
           </p>
         </div>
 
-        <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-7 rounded-3xl border border-accent/55 bg-[linear-gradient(180deg,#17110b,#0f0b08)] p-6 shadow-[0_0_0_1px_rgba(255,138,31,0.12),0_0_44px_rgba(255,138,31,0.16),inset_0_1px_0_rgba(255,200,140,0.1)] sm:p-10">
+        <div className="flex min-w-0 flex-[999_1_420px] flex-col gap-7 rounded-3xl border border-accent/55 bg-[linear-gradient(180deg,#17110b,#0f0b08)] p-6 shadow-[0_0_0_1px_rgba(255,138,31,0.12),0_0_44px_rgba(255,138,31,0.16),inset_0_1px_0_rgba(255,200,140,0.1)] max-md:shadow-[0_0_0_1px_rgba(255,138,31,0.12),0_0_20px_rgba(255,138,31,0.12),inset_0_1px_0_rgba(255,200,140,0.1)] sm:p-10">
           <div className="flex flex-col gap-3">
             <div className="flex justify-between font-mono text-[13px] text-muted">
               <span>{asking ? `pregunta ${qi + 1} de ${totalQ}` : "listo"}</span>

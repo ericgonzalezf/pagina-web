@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { createTimers, useStartOnView } from "@/lib/useStartOnView";
+import { createTimers, useRestartOnView } from "@/lib/useStartOnView";
 
 const TERM = [
   { cmd: "quien-soy", out: "Eric — 25 años emprendiendo, IA después de los 40" },
@@ -12,14 +12,18 @@ const TERM = [
 // null = estado final estático (todo escrito + cursor parpadeando)
 type Anim = { line: number; chars: number; out: number } | null;
 
+// Estado inicial: prompt vacío con el cursor, listo para escribir "quien-soy".
+const INICIO: Anim = { line: 0, chars: 0, out: -1 };
+
 export default function Terminal() {
   const [anim, setAnim] = useState<Anim>(null);
 
-  const ref = useStartOnView<HTMLDivElement>(() => {
+  // Se reinicia cada vez que la terminal vuelve a entrar en pantalla.
+  const ref = useRestartOnView<HTMLDivElement>(() => {
     const t = createTimers();
     let li = 0;
     let ch = 0;
-    setAnim({ line: 0, chars: 0, out: -1 });
+    setAnim(INICIO);
 
     const tick = () => {
       if (li >= TERM.length) {
@@ -40,7 +44,7 @@ export default function Terminal() {
     };
     t.later(tick, 400);
     return () => t.clear();
-  });
+  }, () => setAnim(INICIO));
 
   const lines = TERM.flatMap((l, i) => {
     if (anim && i > anim.line) return [];
@@ -60,7 +64,7 @@ export default function Terminal() {
       ref={ref}
       role="group"
       aria-label="Terminal de presentación"
-      className="min-w-0 flex-[1_1_440px] overflow-hidden rounded-[18px] border border-accent/45 bg-background shadow-[0_0_0_1px_rgba(255,138,31,0.08),0_0_40px_rgba(255,138,31,0.16),0_40px_80px_rgba(0,0,0,0.5)]"
+      className="min-w-0 flex-[1_1_440px] overflow-hidden rounded-[18px] border border-accent/45 bg-background max-md:shadow-[0_0_0_1px_rgba(255,138,31,0.08),0_0_18px_rgba(255,138,31,0.12),0_20px_40px_rgba(0,0,0,0.45)] shadow-[0_0_0_1px_rgba(255,138,31,0.08),0_0_40px_rgba(255,138,31,0.16),0_40px_80px_rgba(0,0,0,0.5)]"
     >
       <div className="flex items-center gap-2 border-b border-border bg-surface px-[18px] py-3.5">
         <span className="h-[11px] w-[11px] rounded-full bg-border-strong" />

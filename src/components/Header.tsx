@@ -22,7 +22,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/[0.82] backdrop-blur-[14px]">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/95 md:bg-background/[0.82] md:backdrop-blur-[14px]">
       <Container className="flex items-center justify-between gap-4 py-3 lg:py-[18px]">
         <Logo />
 
