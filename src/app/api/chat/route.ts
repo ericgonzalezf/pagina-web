@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { MARCA_GRATIS_EN_APP, PRECIO_ESTRATEGIA, site } from "@/config/site";
+import { MARCA_GRATIS_EN_APP, PRECIO_ESTRATEGIA, marcaLinks, site } from "@/config/site";
 import {
   NEGOCIO_CARDS,
   NEGOCIO_FEATURED,
@@ -54,7 +54,7 @@ const factSheet = `- Nombre: ${site.name}
 - Su actitud: cercano, sin rollos técnicos, le gusta acompañar el proceso más que solo "entregar un producto"
 - Frase que usa (para inspirarte, no para citar tal cual): "${site.tagline} ${site.subtagline}"
 - Servicios detallados (úsalos para responder preguntas específicas): ${servicesFacts}
-- Herramienta de marca personal: ${site.marcaUrl} — el resumen básico es gratis${MARCA_GRATIS_EN_APP ? "" : " y por ahora se pide a Eric por WhatsApp"}; la estrategia completa cuesta ${PRECIO_ESTRATEGIA} y se entrega con un código de acceso
+- Herramienta de marca personal: ${site.marcaUrl} — el resumen básico es gratis${MARCA_GRATIS_EN_APP ? ` (se hace en ${marcaLinks.gratis} en unos 3 minutos y llega también por correo)` : " y por ahora se pide a Eric por WhatsApp"}; la estrategia completa cuesta ${PRECIO_ESTRATEGIA}${MARCA_GRATIS_EN_APP ? ` y se compra en ${marcaLinks.comprar} (tarjeta u OXXO); al pagar llega por correo un código de acceso para hacerla` : " y se entrega con un código de acceso"}
 - La web tiene un diagnóstico gratis de menos de un minuto que estima cuánto tiempo puede ahorrar la IA
 - Cómo trabaja: platican, él propone un plan (qué hacer primero, cuánto cuesta y qué resultado esperar) y lo hacen juntos
 - Contacto: WhatsApp (botón en la web) y correo ${site.email}`;

@@ -1,4 +1,4 @@
-import { MARCA_GRATIS_EN_APP, PRECIO_ESTRATEGIA, site } from "@/config/site";
+import { MARCA_GRATIS_EN_APP, PRECIO_ESTRATEGIA, marcaLinks } from "@/config/site";
 import { waLink } from "@/lib/whatsapp";
 import { IconArrow } from "@/components/icons";
 import Container from "@/components/Container";
@@ -19,8 +19,12 @@ const ideas = [
 
 // Mientras la app no tenga versión gratuita, "gratis" se pide por WhatsApp.
 const gratisHref = MARCA_GRATIS_EN_APP
-  ? site.marcaUrl
+  ? marcaLinks.gratis
   : waLink("Hola Eric, quiero mi resumen de marca personal gratis.");
+const comprarHref = MARCA_GRATIS_EN_APP
+  ? marcaLinks.comprar
+  : waLink("Hola Eric, quiero mi código para la Estrategia de Marca Personal completa.");
+const comprarLabel = MARCA_GRATIS_EN_APP ? "Obtener mi estrategia" : "Quiero mi código";
 const gratisLabel = MARCA_GRATIS_EN_APP ? "Descubre tu marca gratis" : "Quiero mi resumen gratis";
 
 const tierTitle = "m-0 text-[22px] font-bold text-foreground";
@@ -68,7 +72,7 @@ export default function Marca() {
                 <IconArrow className="h-[18px] w-[18px]" strokeWidth={2.4} />
               </a>
               <a
-                href={site.marcaUrl}
+                href={marcaLinks.codigo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-11 items-center text-[15px] text-foreground underline decoration-accent/60 underline-offset-4"
@@ -163,12 +167,12 @@ export default function Marca() {
               aplicar. Recibes tu código de acceso.
             </p>
             <a
-              href={waLink("Hola Eric, quiero mi código para la Estrategia de Marca Personal completa.")}
+              href={comprarHref}
               target="_blank"
               rel="noopener noreferrer"
               className={`${tierBtn} btn-primary`}
             >
-              Quiero mi código
+              {comprarLabel}
             </a>
           </div>
 

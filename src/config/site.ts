@@ -23,7 +23,14 @@ export const site = {
 // URL de la app de marca personal. Mientras no tenga versión gratuita, los botones "gratis"
 // de la sección Marca abren WhatsApp. Cuando la app esté lista, cambia esto a `true` y
 // vuelven a abrir la app (site.marcaUrl) con sus textos originales.
-export const MARCA_GRATIS_EN_APP = false;
+export const MARCA_GRATIS_EN_APP = true;
+
+// Entradas directas de la app de marca personal.
+export const marcaLinks = {
+  gratis: `${site.marcaUrl}?modo=gratis`, // resumen de marca gratis
+  codigo: `${site.marcaUrl}?modo=codigo`, // ya tengo mi código
+  comprar: `${site.marcaUrl}?modo=comprar`, // pago de la estrategia completa
+};
 
 // Precio de la "Estrategia completa": se edita solo aquí.
 export const PRECIO_ESTRATEGIA = "$497 MXN";
