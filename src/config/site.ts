@@ -17,9 +17,8 @@ export const site = {
     threads: "https://www.threads.net/@ericgonzalez.ia",
     tiktok: "https://www.tiktok.com/@ericgonzalez.ia",
     youtube: "https://www.youtube.com/@EricGonzalezIA",
-    // Pendiente: pega aquí la URL de tu perfil de LinkedIn. Mientras esté vacía, el ícono
-    // abre WhatsApp y LinkedIn no se incluye en los datos de SEO.
-    linkedin: "",
+    // Si se deja vacía, el ícono de LinkedIn abre WhatsApp y no entra en los datos de SEO.
+    linkedin: "https://www.linkedin.com/in/ericgonzalezia/",
   },
 };
 
