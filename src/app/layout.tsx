@@ -44,7 +44,13 @@ const personJsonLd = {
   url: site.url,
   image: new URL("/images/foto-eric.webp", site.url).toString(),
   jobTitle: "Consultor de IA",
-  sameAs: [site.social.instagram, site.social.threads, site.social.tiktok, site.social.youtube],
+  sameAs: [
+    site.social.instagram,
+    site.social.threads,
+    site.social.linkedin,
+    site.social.tiktok,
+    site.social.youtube,
+  ].filter(Boolean),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

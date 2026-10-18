@@ -2,6 +2,7 @@ import { site } from "@/config/site";
 import { waLink, WA_SALUDO } from "@/lib/whatsapp";
 import {
   IconInstagram,
+  IconLinkedIn,
   IconThreads,
   IconTikTok,
   IconWhatsApp,
@@ -12,6 +13,8 @@ import Container from "@/components/Container";
 const socialLinks = [
   { href: site.social.instagram, label: "Instagram", Icon: IconInstagram },
   { href: site.social.threads, label: "Threads", Icon: IconThreads },
+  // Sin URL de LinkedIn todavía, el ícono abre WhatsApp (ver site.social.linkedin).
+  { href: site.social.linkedin || waLink(WA_SALUDO), label: "LinkedIn", Icon: IconLinkedIn },
   { href: site.social.tiktok, label: "TikTok", Icon: IconTikTok },
   { href: site.social.youtube, label: "YouTube", Icon: IconYouTube },
 ];

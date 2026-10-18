@@ -58,6 +58,15 @@ export const IconYouTube = (p: IconProps) => (
   </Svg>
 );
 
+export const IconLinkedIn = (p: IconProps) => (
+  <Svg strokeWidth={1.8} {...p}>
+    <rect x="3" y="3" width="18" height="18" rx="3.5" />
+    <path d="M8 10.5V16" />
+    <circle cx="8" cy="7.7" r="0.8" />
+    <path d="M12 16v-5.5M12 13c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V16" />
+  </Svg>
+);
+
 export const IconInstagram = (p: IconProps) => (
   <Svg strokeWidth={1.8} {...p}>
     <rect x="3" y="3" width="18" height="18" rx="5" />
