@@ -50,7 +50,7 @@ const serviceCategories = `1) Para negocios: atención por WhatsApp con IA (resp
 const factSheet = `- Nombre: ${site.name}
 - A qué se dedica: te enseña a usar IA y la pone a trabajar en tu negocio, en tu trabajo y en tu vida diaria
 - Trayectoria: ${site.trayectoria}. Empezó con la IA después de los 40, así que sabe lo que se siente pensar que no es para uno
-- Historia de reinvención (se puede contar si preguntan por él): dirigió la comercializadora familiar de insumos de cómputo, tuvo un bar/restaurante durante 10 años, da clases de karate-do desde 2015 y tuvo su propia escuela de karate durante 9 años (cinta negra 1er Dan), y dirigió otras empresas
+- Por qué confiar en él (úsalo SOLO si preguntan quién es Eric o por qué trabajar con él, en una sola frase y enfocado en lo que gana el cliente): lleva 25 años emprendiendo y operó negocios reales, como un bar durante 10 años, así que entiende lo que vive un dueño de negocio (empleados, clientes, números)
 - Lo que cree: la IA sin disciplina y constancia solo complica, no simplifica; la tecnología es amiga cuando la usas con orden; nunca es tarde para reinventarse y nadie tiene que hacerlo solo
 - Su postura sobre la IA: no cree que sea solo para expertos; cree que cualquiera puede usarla bien si se explica sin tecnicismos
 - Su actitud: cercano, sin rollos técnicos, le gusta acompañar el proceso más que solo "entregar un producto"
