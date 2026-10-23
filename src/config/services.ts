@@ -50,7 +50,7 @@ export const SVC_CARDS: SvcCard[][] = [
 export const SVC_CONTEXT = ["", "para mi trabajo", "para mi vida diaria"];
 
 export const NEGOCIO_FEATURED = {
-  badge: "El más pedido",
+  badge: "Servicio estrella",
   title: "Tu negocio atendiendo en WhatsApp con IA",
   desc: "Un asistente que responde, agenda y vende por WhatsApp las 24 horas, entrenado con la información de tu negocio.",
   bullets: [
