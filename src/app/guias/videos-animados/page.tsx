@@ -58,38 +58,93 @@ const errores = [
   ["No revisar en el celular", "Mira la vista previa en tamaño celular antes de exportar."],
 ];
 
-function Section({ n, title, children }: { n: string; title: string; children: ReactNode }) {
-  return (
-    <section className="border-t border-border py-10 sm:py-12">
-      <div className="font-mono text-sm text-accent">{n}</div>
-      <h2 className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{title}</h2>
-      <div className="mt-5 space-y-4 text-[17px] leading-relaxed text-foreground/90">{children}</div>
-    </section>
-  );
-}
+type Tone = "light" | "dark";
 
-function Note({ label, children }: { label: string; children: ReactNode }) {
+// Ritmo de fondos (visual.md de la marca): portada negra, cuerpo en marfil (mucho texto se lee
+// mejor en claro), una franja carbón para cambiar de ritmo y cierre negro. Nunca dos franjas
+// seguidas con el mismo fondo.
+const tones = {
+  light: {
+    band: "bg-[#F2E9DD] text-[#1A0E03]",
+    border: "border-[#1A0E03]/12",
+    num: "text-[#C2530C]",
+    title: "text-[#1A0E03]",
+    body: "text-[#1A0E03]/85",
+    muted: "text-[#5E4B3B]",
+    accent: "text-[#B84E0B]",
+    noteBox: "border-[#C2530C]/35 bg-[#FF8A1F]/[0.12]",
+    tableHead: "bg-[#1A0E03]/[0.06] text-[#5E4B3B]",
+  },
+  dark: {
+    band: "bg-[#120E0A] text-foreground",
+    border: "border-border",
+    num: "text-accent",
+    title: "text-foreground",
+    body: "text-foreground/90",
+    muted: "text-muted",
+    accent: "text-accent",
+    noteBox: "border-accent/35 bg-accent/[0.07]",
+    tableHead: "bg-surface text-muted",
+  },
+} as const;
+
+function Band({ tone, children, className = "" }: { tone: Tone; children: ReactNode; className?: string }) {
   return (
-    <div className="rounded-2xl border border-accent/35 bg-accent/[0.07] px-5 py-4 text-[16px] leading-relaxed">
-      <span className="font-semibold text-accent">{label}</span> {children}
+    <div className={`${tones[tone].band} ${className}`}>
+      <div className="mx-auto w-full max-w-[760px] px-5">{children}</div>
     </div>
   );
 }
 
-function Pairs({ head, rows }: { head: [string, string]; rows: string[][] }) {
+function Section({
+  n,
+  title,
+  tone,
+  first = false,
+  children,
+}: {
+  n: string;
+  title: string;
+  tone: Tone;
+  first?: boolean;
+  children: ReactNode;
+}) {
+  const t = tones[tone];
   return (
-    <div className="overflow-hidden rounded-2xl border border-border">
-      <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-4 bg-surface px-4 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-muted">
+    <section className={`py-10 sm:py-12 ${first ? "" : `border-t ${t.border}`}`}>
+      <div className={`font-mono text-sm font-semibold ${t.num}`}>{n}</div>
+      <h2 className={`mt-2 text-2xl font-bold tracking-tight sm:text-3xl ${t.title}`}>{title}</h2>
+      <div className={`mt-5 space-y-4 text-[17px] leading-relaxed ${t.body}`}>{children}</div>
+    </section>
+  );
+}
+
+function Note({ tone, label, children }: { tone: Tone; label: string; children: ReactNode }) {
+  const t = tones[tone];
+  return (
+    <div className={`rounded-2xl border px-5 py-4 text-[16px] leading-relaxed ${t.noteBox}`}>
+      <span className={`font-semibold ${t.accent}`}>{label}</span> {children}
+    </div>
+  );
+}
+
+function Pairs({ tone, head, rows }: { tone: Tone; head: [string, string]; rows: string[][] }) {
+  const t = tones[tone];
+  return (
+    <div className={`overflow-hidden rounded-2xl border ${t.border}`}>
+      <div
+        className={`grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-4 px-4 py-2.5 font-mono text-xs uppercase tracking-[0.12em] ${t.tableHead}`}
+      >
         <span>{head[0]}</span>
         <span>{head[1]}</span>
       </div>
       {rows.map(([a, b]) => (
         <div
           key={a}
-          className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-4 border-t border-border px-4 py-3.5 text-[15px] leading-snug"
+          className={`grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-4 border-t px-4 py-3.5 text-[15px] leading-snug ${t.border}`}
         >
-          <span className="font-semibold text-foreground">{a}</span>
-          <span className="text-muted">{b}</span>
+          <span className={`font-semibold ${t.title}`}>{a}</span>
+          <span className={t.muted}>{b}</span>
         </div>
       ))}
     </div>
@@ -113,10 +168,10 @@ export default function GuiaVideosAnimados() {
         </div>
       </header>
 
-      <main className="sec-hero">
-        <article className="mx-auto w-full max-w-[760px] px-5">
-          {/* Portada */}
-          <div className="pb-10 pt-12 sm:pt-16">
+      <main>
+        {/* Portada: negro de marca */}
+        <div className="sec-hero">
+          <div className="mx-auto w-full max-w-[760px] px-5 pb-14 pt-12 sm:pb-16 sm:pt-16">
             <div className="font-mono text-xs uppercase tracking-[0.18em] text-muted">
               <span className="text-accent">●</span> Guía gratis
             </div>
@@ -131,7 +186,11 @@ export default function GuiaVideosAnimados() {
             </p>
           </div>
 
-          <Section n="01" title="Qué vas a lograr">
+        </div>
+
+        {/* Cuerpo: marfil */}
+        <Band tone="light">
+          <Section n="01" title="Qué vas a lograr" tone="light" first>
             <p>
               Vas a pedirle a Claude un video animado con un mensaje y recibir un archivo MP4 listo para Reels, anuncios o
               presentaciones.
@@ -145,15 +204,15 @@ export default function GuiaVideosAnimados() {
               La herramienta que lo convierte en video se llama <strong>Remotion</strong>. No necesitas saber programar:
               Claude la instala y la usa por ti.
             </p>
-            <Note label="Dato:">el video donde viste esta guía se hizo exactamente con este método.</Note>
+            <Note tone="light" label="Dato:">el video donde viste esta guía se hizo exactamente con este método.</Note>
           </Section>
 
-          <Section n="02" title="Lo que necesitas">
-            <Pairs head={["Qué", "Detalle"]} rows={necesitas} />
+          <Section n="02" title="Lo que necesitas" tone="light">
+            <Pairs tone="light" head={["Qué", "Detalle"]} rows={necesitas} />
           </Section>
 
-          <Section n="03" title="Paso 1 · Prepara tu espacio">
-            <ol className="list-decimal space-y-2 pl-6 marker:text-accent">
+          <Section n="03" title="Paso 1 · Prepara tu espacio" tone="light">
+            <ol className="list-decimal space-y-2 pl-6 marker:font-semibold marker:text-[#C2530C]">
               <li>
                 Descarga la app de Claude para escritorio desde <strong>claude.com/download</strong> e inicia sesión con tu
                 cuenta de pago.
@@ -172,7 +231,7 @@ export default function GuiaVideosAnimados() {
             </p>
           </Section>
 
-          <Section n="04" title="Paso 2 · Tu primer mensaje">
+          <Section n="04" title="Paso 2 · Tu primer mensaje" tone="light">
             <p>
               Copia este mensaje, cambia lo que está entre corchetes y mándalo en la pestaña <strong>Code</strong>:
             </p>
@@ -183,12 +242,12 @@ export default function GuiaVideosAnimados() {
             </p>
           </Section>
 
-          <Section n="05" title="Paso 3 · Revisa y pide cambios">
+          <Section n="05" title="Paso 3 · Revisa y pide cambios" tone="light">
             <p>
               Claude puede abrirte una vista previa para ver el video antes de exportarlo. Míralo completo y pide cambios
               como si hablaras con un editor:
             </p>
-            <ul className="space-y-2 border-l-2 border-accent/50 pl-4 italic text-muted">
+            <ul className="space-y-2 border-l-2 border-[#C2530C]/50 pl-4 italic text-[#5E4B3B]">
               <li>“La escena 2 va muy rápido, dale un segundo más.”</li>
               <li>“Cambia el título a: Ahorra sin dejar de comer rico.”</li>
               <li>“Las letras se ven chicas en el celular, hazlas más grandes.”</li>
@@ -200,56 +259,67 @@ export default function GuiaVideosAnimados() {
             </p>
           </Section>
 
-          <Section n="06" title="Paso 4 · Ponle tu marca y tu voz">
+          <Section n="06" title="Paso 4 · Ponle tu marca y tu voz" tone="light">
             <ul className="space-y-3">
               <li>
-                <strong className="text-accent">Tus colores:</strong> dale los códigos de color de tu marca (por ejemplo
+                <strong className="text-[#B84E0B]">Tus colores:</strong> dale los códigos de color de tu marca (por ejemplo
                 #FF8A1F) o una captura de tu logo, y pídele que los use en todas las escenas.
               </li>
               <li>
-                <strong className="text-accent">Tu letra:</strong> dile el nombre de tu tipografía; si es de Google Fonts,
+                <strong className="text-[#B84E0B]">Tu letra:</strong> dile el nombre de tu tipografía; si es de Google Fonts,
                 Claude la agrega sola.
               </li>
               <li>
-                <strong className="text-accent">Tu logo:</strong> guárdalo en la carpeta (PNG o SVG) y pídele que aparezca
+                <strong className="text-[#B84E0B]">Tu logo:</strong> guárdalo en la carpeta (PNG o SVG) y pídele que aparezca
                 al inicio o al cierre.
               </li>
               <li>
-                <strong className="text-accent">Tu voz:</strong> graba el guion en audio, frase por frase y con una pausa
+                <strong className="text-[#B84E0B]">Tu voz:</strong> graba el guion en audio, frase por frase y con una pausa
                 entre cada una. Guárdalo en la carpeta y pídele que sincronice las escenas con tu voz y ponga subtítulos
                 palabra por palabra.
               </li>
             </ul>
-            <Note label="Truco:">
+            <Note tone="light" label="Truco:">
               cuando un video te guste, dile “guarda este estilo como plantilla”. El siguiente lo pides en un solo mensaje.
             </Note>
           </Section>
 
-          <Section n="07" title="4 errores que arruinan el video">
-            <Pairs head={["Error", "Mejor así"]} rows={errores} />
-          </Section>
+        </Band>
 
-          <Section n="08" title="Ideas para tu primer video">
+        {/* Cambio de ritmo: carbón */}
+        <Band tone="dark">
+          <Section n="07" title="4 errores que arruinan el video" tone="dark" first>
+            <Pairs tone="dark" head={["Error", "Mejor así"]} rows={errores} />
+          </Section>
+        </Band>
+
+        {/* De vuelta a marfil */}
+        <Band tone="light">
+
+          <Section n="08" title="Ideas para tu primer video" tone="light" first>
             <ul className="space-y-3">
               <li>
-                <strong className="text-accent">Anuncio de tu negocio:</strong> una promoción de 20 segundos con tu precio
+                <strong className="text-[#B84E0B]">Anuncio de tu negocio:</strong> una promoción de 20 segundos con tu precio
                 y “Escríbeme por WhatsApp”.
               </li>
               <li>
-                <strong className="text-accent">Explicativo de tu servicio:</strong> qué haces, para quién y cómo
+                <strong className="text-[#B84E0B]">Explicativo de tu servicio:</strong> qué haces, para quién y cómo
                 contratarte, en 45 segundos.
               </li>
               <li>
-                <strong className="text-accent">Reel educativo:</strong> 3 consejos de tu tema, sin salir a cámara.
+                <strong className="text-[#B84E0B]">Reel educativo:</strong> 3 consejos de tu tema, sin salir a cámara.
               </li>
             </ul>
-            <Note label="Empieza poco a poco:">
+            <Note tone="light" label="Empieza poco a poco:">
               tu primer video de 15 segundos. No busques que salga perfecto; busca que salga, y luego pídele cambios.
             </Note>
           </Section>
 
-          {/* Cierre */}
-          <section className="border-t border-border pb-16 pt-12 text-center">
+        </Band>
+
+        {/* Cierre: negro de marca con luz naranja */}
+        <section className="sec-contacto">
+          <div className="mx-auto w-full max-w-[760px] px-5 pb-16 pt-14 text-center">
             <div className="font-mono text-xs uppercase tracking-[0.18em] text-muted">
               <span className="text-accent">●</span> Tu siguiente paso
             </div>
@@ -282,8 +352,8 @@ export default function GuiaVideosAnimados() {
             <p className="mt-6 text-sm text-dim">
               <Link href="/">{site.domain}</Link> · {site.handle}
             </p>
-          </section>
-        </article>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
