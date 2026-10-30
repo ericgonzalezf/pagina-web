@@ -78,7 +78,7 @@ export default function PrivacidadPage() {
         <Seccion titulo="1. Quién es responsable de tus datos">
           <p>
             <span className="text-foreground">Eric González Flores</span>, persona física con actividad empresarial
-            (en adelante, “Eric González”), con domicilio en Don Refugio 4, Col. Ex-Hacienda Coapa, Alcaldía Tlalpan, C.P. 14330, Ciudad de
+            (en adelante, “Eric González”), con domicilio en Don Refugio 4, Int. Local 4 y 5, Col. Ex-Hacienda Coapa, Alcaldía Tlalpan, C.P. 14330, Ciudad de
             México, México, es responsable del
             tratamiento de tus datos personales conforme a la Ley Federal de Protección de Datos Personales en
             Posesión de los Particulares.
