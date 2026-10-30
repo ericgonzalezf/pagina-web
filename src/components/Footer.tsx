@@ -9,8 +9,13 @@ export default function Footer() {
         <div className="font-mono text-foreground">
           eric<span className="text-accent">gonzalezf</span>.com
         </div>
-        <div>
-          © {new Date().getFullYear()} {site.name} · {site.handle}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <span>
+            © {new Date().getFullYear()} {site.name} · {site.handle}
+          </span>
+          <a href="/privacidad" className="!text-muted hover:!text-foreground">
+            Aviso de privacidad
+          </a>
         </div>
       </Container>
     </footer>
