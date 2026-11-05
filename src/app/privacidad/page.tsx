@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 const title = "Aviso de privacidad";
 const description =
   "Cómo Eric González trata tus datos personales en su sitio web, su WhatsApp, su asistente con IA y la app de marca personal.";
-const actualizacion = "30 de octubre de 2026";
+const actualizacion = "5 de noviembre de 2026";
 
 export const metadata: Metadata = {
   title: `${title} | ${site.name}`,
@@ -41,9 +41,11 @@ function Lista({ items }: { items: ReactNode[] }) {
 const proveedores: [string, string][] = [
   ["Meta Platforms (WhatsApp, Instagram, Facebook)", "Recibir y enviar los mensajes que nos escribes por esos canales."],
   ["Anthropic (Claude)", "Generar las respuestas del asistente con inteligencia artificial."],
-  ["Cloudflare", "Alojar el asistente de WhatsApp y la app de marca personal."],
+  [
+    "Cloudflare",
+    "Alojar el asistente de WhatsApp y la app de marca personal, y guardar las conversaciones y los datos de prospectos del asistente.",
+  ],
   ["Vercel", "Alojar este sitio web."],
-  ["Supabase", "Guardar conversaciones y datos de prospectos del asistente."],
   ["Stripe", "Procesar pagos con tarjeta u OXXO. Nunca recibimos los datos completos de tu tarjeta."],
   ["MailerLite y Resend", "Enviar correos, entregables y, si lo aceptas, comunicaciones."],
   ["Google Workspace", "Correo electrónico y agenda."],
@@ -175,7 +177,29 @@ export default function PrivacidadPage() {
           </p>
         </Seccion>
 
-        <Seccion titulo="6. Cuánto tiempo los conservamos">
+        <Seccion titulo="6. Si tu negocio usa nuestra plataforma de asistentes">
+          <p>
+            Si eres un negocio y conectas tu número de WhatsApp a nuestra plataforma de asistentes con inteligencia
+            artificial, <span className="text-foreground">tú eres el responsable</span> de los datos de tus clientes y
+            Eric González actúa como <span className="text-foreground">encargado</span>: trata esos datos solo por tu
+            cuenta y bajo tus instrucciones, para operar tu asistente.
+          </p>
+          <Lista
+            items={[
+              "Tratamos los mensajes, números y nombres de perfil de tus clientes, y los datos que ellos compartan en la conversación, únicamente para recibir, responder y registrar sus mensajes y mostrártelos en tu panel.",
+              "Para conectar tu número usamos el registro oficial de Meta. Solo accedemos a la cuenta de WhatsApp Business que tú compartes con nuestra app, y puedes quitar ese acceso cuando quieras desde tu portafolio de Meta.",
+              "No usamos los datos de tus clientes para fines propios, no los vendemos ni los usamos para publicidad. Usamos los mismos proveedores de la sección 5, bajo las mismas condiciones.",
+              "Los datos de cada negocio se guardan separados de los de otros negocios y solo los ve el negocio y el personal autorizado de Eric González para dar soporte.",
+              "Si dejas de usar la plataforma o nos lo pides, borramos los datos de tus clientes, salvo lo que una ley obligue a conservar.",
+            ]}
+          />
+          <p>
+            Si eres cliente de un negocio que usa nuestra plataforma, consulta el aviso de privacidad de ese negocio y
+            ejerce tus derechos con él. Si nos escribes a nosotros, le haremos llegar tu solicitud.
+          </p>
+        </Seccion>
+
+        <Seccion titulo="7. Cuánto tiempo los conservamos">
           <p>
             Los mensajes del asistente de WhatsApp se borran automáticamente a los 90 días. Los datos de contacto y
             seguimiento de prospectos se conservan mientras exista una relación o hasta que pidas su eliminación. Los
@@ -183,7 +207,7 @@ export default function PrivacidadPage() {
           </p>
         </Seccion>
 
-        <Seccion titulo="7. Tus derechos (ARCO) y cómo ejercerlos">
+        <Seccion titulo="8. Tus derechos (ARCO) y cómo ejercerlos">
           <p>
             Puedes <span className="text-foreground">acceder</span> a tus datos,{" "}
             <span className="text-foreground">rectificarlos</span>,{" "}
@@ -206,14 +230,14 @@ export default function PrivacidadPage() {
           </p>
         </Seccion>
 
-        <Seccion titulo="8. Cookies">
+        <Seccion titulo="9. Cookies">
           <p>
             Este sitio no usa cookies de publicidad. Las herramientas que lo alojan pueden usar cookies técnicas
             necesarias para que funcione.
           </p>
         </Seccion>
 
-        <Seccion titulo="9. Cambios a este aviso">
+        <Seccion titulo="10. Cambios a este aviso">
           <p>
             Si este aviso cambia, publicaremos la nueva versión en esta misma página con su fecha de actualización.
           </p>
