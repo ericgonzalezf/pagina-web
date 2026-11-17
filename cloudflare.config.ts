@@ -5,6 +5,9 @@ export default defineConfig({
     name: "ericgonzalezf-web",
     entrypoint: "vinext/server/fetch-handler",
     compatibilityDate: "2026-11-17",
+    // Dominios propios. El sitio se sirve en www; el dominio sin www también llega a
+    // este Worker y next.config.ts lo redirige a www.
+    domains: ["www.ericgonzalezf.com", "ericgonzalezf.com"],
     assets: {
       htmlHandling: "none",
       notFoundHandling: "none",
