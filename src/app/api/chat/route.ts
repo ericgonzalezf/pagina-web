@@ -117,8 +117,8 @@ export async function POST(req: Request) {
     return Response.json({ error: "rate_limited" }, { status: 429 });
   }
 
-  const body = await req.json().catch(() => null);
-  const messages: ChatMessage[] | undefined = body?.messages;
+  const body = (await req.json().catch(() => null)) as { messages?: ChatMessage[] } | null;
+  const messages = body?.messages;
 
   if (!Array.isArray(messages) || messages.length === 0) {
     return Response.json({ error: "invalid_request" }, { status: 400 });

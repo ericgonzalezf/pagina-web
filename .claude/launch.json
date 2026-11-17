@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 3000
+    },
+    {
+      "name": "pagina-web-cloudflare",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start:vinext", "--", "--port", "4173", "--strictPort"],
+      "port": 4173
     }
   ]
 }

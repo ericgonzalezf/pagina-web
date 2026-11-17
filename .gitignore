@@ -43,3 +43,9 @@ next-env.d.ts
 
 # material de referencia local (no publicar)
 /referencia/
+/dist/
+.vinext/
+.cloudflare/
+
+# variables locales para probar el Worker de Cloudflare (nunca se suben)
+.dev.vars*
