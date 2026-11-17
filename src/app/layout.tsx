@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { site } from "@/config/site";
 import ChatWidget from "@/components/ChatWidget";
+import Analytics from "@/components/Analytics";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,8 +27,8 @@ export const metadata: Metadata = {
     title: site.title,
     description: site.description,
     url: site.url,
-    siteName: site.name,
-    locale: "es_ES",
+    siteName: site.brand,
+    locale: "es_MX",
     type: "website",
   },
   twitter: {
@@ -56,7 +57,7 @@ const personJsonLd = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="es"
+      lang="es-MX"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         {children}
         <ChatWidget />
+        <Analytics />
       </body>
     </html>
   );

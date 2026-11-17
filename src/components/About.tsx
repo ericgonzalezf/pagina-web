@@ -17,9 +17,9 @@ export default function About() {
             de emprendedor encima. Sé lo que se siente pensar que la IA no es para ti.
           </p>
           <p className="m-0 text-lg leading-[1.65] text-muted">
-            Por eso enseño IA sin tecnicismos y la aplico en negocios reales: para que trabajes
-            menos, vendas más y{" "}
-            <span className="text-foreground">te sientas parte del cambio, no víctima de él.</span>
+            Por eso enseño IA sin tecnicismos y la aplico en negocios reales: para que ahorres
+            tiempo, simplifiques tus tareas y{" "}
+            <span className="text-foreground">seas parte del cambio, no víctima de él.</span>
           </p>
         </div>
 

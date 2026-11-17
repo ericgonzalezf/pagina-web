@@ -6,7 +6,7 @@ import { createTimers, useRestartOnView } from "@/lib/useStartOnView";
 const TERM = [
   { cmd: "quien-soy", out: "Eric — 25 años emprendiendo, IA después de los 40" },
   { cmd: "que-hago", out: "Te enseño IA y la aplico en tu negocio" },
-  { cmd: "mision", out: "\"Nunca es tarde. IA para todos — caminemos juntos.\"" },
+  { cmd: "mision", out: "\"Nunca es tarde. Caminemos juntos.\"" },
 ];
 
 // null = estado final estático (todo escrito + cursor parpadeando)

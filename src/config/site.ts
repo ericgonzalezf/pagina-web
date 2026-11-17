@@ -1,13 +1,14 @@
 export const site = {
-  name: "Eric González",
+  name: "Eric González", // nombre de persona: firma, "Soy Eric González", datos de SEO de la persona
+  brand: "Eric González IA", // nombre de marca: títulos, nombre del sitio y pie de página
   handle: "@ericgonzalez.ia",
   domain: "ericgonzalezf.com",
   url: "https://www.ericgonzalezf.com/", // URL canónica (el dominio sin www redirige aquí)
-  title: "Eric González | IA aplicada sin tecnicismos",
+  title: "Eric González IA | IA aplicada sin tecnicismos",
   description:
     "Te enseño a usar inteligencia artificial y la pongo a trabajar en tu negocio, en tu trabajo y en tu vida diaria. IA aplicada sin tecnicismos — nunca es tarde para empezar.",
   tagline: "IA aplicada sin tecnicismos.",
-  subtagline: "Nunca es tarde. IA para todos — caminemos juntos.",
+  subtagline: "Nunca es tarde. Caminemos juntos.",
   trayectoria: "25 años emprendiendo · IA después de los 40",
   email: "contacto@ericgonzalezf.com",
   whatsapp: "525610738845",

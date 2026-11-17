@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/config/site";
-import { waLink, WA_SALUDO } from "@/lib/whatsapp";
+import { waLink, WA_SALUDO_CHAT } from "@/lib/whatsapp";
+import { track } from "@/lib/track";
 import { IconWhatsApp } from "@/components/icons";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -10,7 +11,7 @@ type Message = { role: "user" | "assistant"; content: string };
 const GREETING: Message = {
   role: "assistant",
   content:
-    "¡Hola! Soy el asistente de Eric. Pregúntame sobre sus servicios de IA, chatbots, automatización o marca personal, y te oriento.",
+    "¡Hola! Soy el asistente con IA de Eric. Cuéntame qué te gustaría resolver (en tu negocio, en tu trabajo o en tu día a día) y te digo por dónde empezar.",
 };
 
 export default function ChatWidget() {
@@ -34,6 +35,7 @@ export default function ChatWidget() {
     setMessages(nextMessages);
     setInput("");
     setLoading(true);
+    track("chat_mensaje", { numero: nextMessages.filter((m) => m.role === "user").length });
 
     try {
       const res = await fetch("/api/chat", {
@@ -48,7 +50,7 @@ export default function ChatWidget() {
           ...prev,
           {
             role: "assistant",
-            content: `Este asistente todavía está en configuración. Mientras tanto, escríbeme directo a ${site.email} y te respondo yo mismo.`,
+            content: `Este asistente todavía está en configuración. Mientras tanto, escríbeme por WhatsApp o a ${site.email}.`,
           },
         ]);
         return;
@@ -99,7 +101,7 @@ export default function ChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-4 right-3 z-50 flex flex-col items-end gap-3 sm:bottom-7 sm:right-7">
+    <div data-origen="chat" className="fixed bottom-4 right-3 z-50 flex flex-col items-end gap-3 sm:bottom-7 sm:right-7">
       {open && (
         <div className="flex h-[30rem] max-h-[calc(100dvh-8rem)] w-[22rem] max-w-[calc(100vw-1.5rem)] flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl md:bg-surface/95 md:backdrop-blur">
           <div className="flex items-center gap-2 border-b border-border px-4 py-3">
@@ -124,13 +126,13 @@ export default function ChatWidget() {
 
           <div className="border-t border-border px-3 pt-3">
             <a
-              href={waLink(WA_SALUDO)}
+              href={waLink(WA_SALUDO_CHAT)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex min-h-11 items-center justify-center gap-2 rounded-full border border-accent/55 text-sm font-medium !text-foreground hover:border-accent hover:bg-accent/[0.08]"
             >
               <IconWhatsApp className="h-[18px] w-[18px] text-accent" />
-              Hablar con Eric por WhatsApp
+              Seguir por WhatsApp
             </a>
           </div>
 
@@ -157,7 +159,10 @@ export default function ChatWidget() {
       )}
 
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          if (!open) track("chat_abierto");
+          setOpen((v) => !v);
+        }}
         aria-label={open ? "Cerrar chat" : "Abrir chat"}
         aria-expanded={open}
         className="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-accent/60 bg-surface text-accent shadow-[0_0_20px_rgba(255,138,31,0.3),0_12px_30px_rgba(0,0,0,0.5)] transition-[transform,border-color] hover:scale-105 hover:border-accent max-md:shadow-[0_0_12px_rgba(255,138,31,0.25),0_8px_20px_rgba(0,0,0,0.5)] motion-reduce:transition-none motion-reduce:hover:scale-100 sm:h-[58px] sm:w-[58px]"

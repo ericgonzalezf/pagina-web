@@ -1,5 +1,5 @@
 import { site } from "@/config/site";
-import { waLink, WA_SALUDO } from "@/lib/whatsapp";
+import { waLink, WA_SALUDO, WA_SALUDO_CONTACTO } from "@/lib/whatsapp";
 import {
   IconInstagram,
   IconLinkedIn,
@@ -33,12 +33,13 @@ export default function Contact() {
           <span className="text-brand">caminar juntos?</span>
         </h2>
         <p className="m-0 max-w-[560px] text-lg leading-[1.55] text-muted sm:text-xl">
-          Cuéntame de tu negocio o de lo que quieres aprender. Te respondo yo, directamente.
+          Cuéntame de tu negocio o de lo que quieres aprender. Te atiende mi asistente con IA; si
+          quieres hablar conmigo sobre tu negocio, también podemos hacerlo.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 pt-2">
           <a
-            href={waLink(WA_SALUDO)}
+            href={waLink(WA_SALUDO_CONTACTO)}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary inline-flex min-h-14 items-center gap-2.5 rounded-full px-[30px] text-[17px]"

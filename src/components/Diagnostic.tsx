@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { FLOWS, Q_START, computeResult } from "@/config/diagnostic";
 import { IconWhatsApp } from "@/components/icons";
 import Container from "@/components/Container";
+import { track } from "@/lib/track";
 
 export default function Diagnostic() {
   const [q, setQ] = useState(0);
@@ -29,6 +30,7 @@ export default function Diagnostic() {
   const pick = (oi: number) => {
     interacted.current = true;
     if (qi === 0) {
+      track("diagnostico_inicio", { ruta: Q_START.options[oi] });
       setPath(oi);
       setAnswers([]);
       setQ(1);
@@ -36,6 +38,12 @@ export default function Diagnostic() {
     }
     const next = answers.slice(0, qi - 1);
     next[qi - 1] = oi;
+    if (path != null && qi === totalQ - 1) {
+      track("diagnostico_completo", {
+        ruta: Q_START.options[path],
+        recomendacion: computeResult(path, next).recTitle,
+      });
+    }
     setAnswers(next);
     setQ(qi + 1);
   };

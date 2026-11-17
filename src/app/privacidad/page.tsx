@@ -13,7 +13,7 @@ const description =
 const actualizacion = "5 de noviembre de 2026";
 
 export const metadata: Metadata = {
-  title: `${title} | ${site.name}`,
+  title: `${title} | ${site.brand}`,
   description,
   alternates: { canonical: "/privacidad" },
   robots: { index: true, follow: true },
