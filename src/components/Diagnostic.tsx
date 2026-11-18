@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { FLOWS, Q_START, computeResult } from "@/config/diagnostic";
 import { IconWhatsApp } from "@/components/icons";
 import Container from "@/components/Container";
+import ContactoDiagnostico from "@/components/ContactoDiagnostico";
 import { track } from "@/lib/track";
 
 export default function Diagnostic() {
@@ -161,6 +162,8 @@ export default function Diagnostic() {
                       <div className="text-base leading-[1.6] text-foreground">{res.extraNote}</div>
                     )}
                   </div>
+
+                  {path != null && <ContactoDiagnostico ruta={path} respuestas={answers} />}
 
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a

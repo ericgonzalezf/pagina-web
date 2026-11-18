@@ -113,6 +113,7 @@ export default function PrivacidadPage() {
             items={[
               "Responder tus mensajes y dudas sobre nuestros servicios y productos.",
               "Entender qué necesitas, preparar una propuesta o cotización y darte seguimiento a tu solicitud.",
+              "Enviarte por correo el resultado del diagnóstico que pides en nuestra página.",
               "Prestar los servicios o entregar los productos que contrates.",
               "Procesar pagos y emitir facturas.",
               "Mantener la seguridad, evitar abusos y mejorar la calidad del servicio de atención.",
@@ -121,7 +122,7 @@ export default function PrivacidadPage() {
           <p className="text-foreground">Finalidades adicionales (puedes negarte):</p>
           <Lista
             items={[
-              "Enviarte contenido, novedades o promociones por correo o WhatsApp.",
+              "Enviarte contenido, novedades o promociones por correo o WhatsApp (en el diagnóstico de la página, solo si marcas la casilla para recibirlos).",
               "Elaborar estadísticas generales sobre las consultas que recibimos.",
             ]}
           />

@@ -42,7 +42,20 @@ export default defineConfig(({ isPreview }) => ({
             // migrations/). Solo en producción, para que las vistas previas no ensucien los
             // datos: ahí /api/evento no guarda nada.
             DB: bindings.d1({ id: "baac9a9b-8a89-49f7-bb0c-7679d588eff2", name: "ericgonzalezf-web" }),
+            // Contactos del diagnóstico (tabla `contactos`, ver migrations-contactos/). Base aparte
+            // para que la medición nunca llene el espacio de los contactos.
+            CONTACTOS: bindings.d1({ id: "37ca7cdd-d96c-4bc4-9935-d7a205197856", name: "ericgonzalezf-contactos" }),
+            // Claves para dar de alta contactos en MailerLite y enviar correos con Resend. Las
+            // carga Eric en el panel de Cloudflare; nunca van en el código.
+            MAILERLITE_API_TOKEN: bindings.secret(),
+            RESEND_API_KEY: bindings.secret(),
           }),
+      // A dónde llegan los avisos de contactos nuevos y a qué grupo de MailerLite entran.
+      AVISO_CORREO: bindings.text("contacto@ericgonzalezf.com"),
+      MAILERLITE_GRUPO: bindings.text("204443693410682294"),
+      // Freno contra abuso del formulario: máximo 5 envíos por minuto desde una misma IP
+      // (la IP solo se usa en memoria para contar; no se guarda).
+      LIMITE_CONTACTO: bindings.rateLimit({ namespace: isPreview ? "2002" : "2001", simple: { limit: 5, period: 60 } }),
     },
   }),
 }));

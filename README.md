@@ -76,3 +76,20 @@ El número es la cantidad de días hacia atrás (7 si no se indica). Necesita `n
 
 Para cambiar la tabla: crea una migración nueva en `migrations/` y aplícala con `npm run db:migrate`
 (producción) y `npm run db:migrate:local` (local).
+
+## Contactos del diagnóstico
+
+Al terminar el diagnóstico, la persona puede dejar su correo (y opcionalmente nombre y WhatsApp)
+para recibir su resultado. Lo procesa [`src/app/api/contacto/route.ts`](src/app/api/contacto/route.ts):
+
+1. Guarda el contacto en la base D1 `ericgonzalezf-contactos`, tabla `contactos`
+   ([`migrations-contactos/`](migrations-contactos/)).
+2. Le manda su resultado por correo con Resend (desde `contacto@ericgonzalezf.com`).
+3. Si marcó la casilla de correos, lo da de alta en MailerLite, grupo **Diagnóstico web**.
+4. Avisa a `AVISO_CORREO` (en `cloudflare.config.ts`) con sus datos y un botón para escribirle por WhatsApp.
+
+Necesita dos secretos en el Worker (panel de Cloudflare → ericgonzalezf-web → Configuración →
+Variables y secretos): `MAILERLITE_API_TOKEN` y `RESEND_API_KEY`. Si faltan, la publicación se detiene.
+Las vistas previas no guardan ni envían nada.
+
+Textos de los correos: [`src/lib/contacto-correos.ts`](src/lib/contacto-correos.ts).

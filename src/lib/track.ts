@@ -10,6 +10,7 @@
 //   red_social_click      { origen, red }         clic hacia Instagram, YouTube, etc.
 //   diagnostico_inicio    { ruta }                eligió negocio / trabajo / vida diaria
 //   diagnostico_completo  { ruta, recomendacion } llegó al resultado
+//   contacto_enviado      { ruta, acepta }        dejó sus datos para recibir su diagnóstico
 //   chat_abierto                                  abrió el asistente
 //   chat_mensaje          { numero }              envió un mensaje (nunca se registra el texto)
 //
@@ -102,6 +103,14 @@ function enviar(payload: unknown) {
     // se intenta con fetch
   }
   fetch(ENDPOINT, { method: "POST", body, keepalive: true }).catch(() => {});
+}
+
+// Datos de la visita para acompañar un formulario (por ejemplo el de contacto del diagnóstico):
+// así cada contacto queda ligado a su canal de llegada y a sus pasos en el sitio.
+export function datosDeVisita() {
+  if (typeof window === "undefined") return { sesion: null, referente: "", utm: {} };
+  const { referente, utm } = llegada();
+  return { sesion: sesion(), referente, utm };
 }
 
 export function track(event: string, params: TrackParams = {}) {

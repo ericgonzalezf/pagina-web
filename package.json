@@ -9,7 +9,9 @@
     "lint": "eslint",
     "deploy": "cf deploy",
     "db:migrate": "cf d1 migrations apply baac9a9b-8a89-49f7-bb0c-7679d588eff2",
-    "db:migrate:local": "cf d1 migrations apply baac9a9b-8a89-49f7-bb0c-7679d588eff2 --local"
+    "db:migrate:local": "cf d1 migrations apply baac9a9b-8a89-49f7-bb0c-7679d588eff2 --local",
+    "db:migrate:contactos": "cf d1 migrations apply 37ca7cdd-d96c-4bc4-9935-d7a205197856 --dir migrations-contactos",
+    "db:migrate:contactos:local": "cf d1 migrations apply 37ca7cdd-d96c-4bc4-9935-d7a205197856 --dir migrations-contactos --local"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.128.0",

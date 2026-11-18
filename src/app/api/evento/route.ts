@@ -13,6 +13,7 @@ const EVENTOS = new Set([
   "red_social_click",
   "diagnostico_inicio",
   "diagnostico_completo",
+  "contacto_enviado",
   "chat_abierto",
   "chat_mensaje",
 ]);
