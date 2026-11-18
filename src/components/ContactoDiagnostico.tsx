@@ -72,9 +72,9 @@ export default function ContactoDiagnostico({ ruta, respuestas }: { ruta: number
   return (
     <form onSubmit={enviar} className="flex flex-col gap-3.5 rounded-2xl border border-border bg-surface-deep/60 p-5" noValidate>
       <div className="flex flex-col gap-1">
-        <div className="text-lg font-semibold text-foreground">Recibe tu diagnóstico por correo</div>
+        <div className="text-lg font-semibold text-foreground">¿Prefieres recibirlo por correo?</div>
         <div className="text-[15px] leading-[1.5] text-muted">
-          Te lo mando con tus respuestas y el siguiente paso, para que lo tengas a la mano.
+          Te mando tu diagnóstico con tus respuestas y el siguiente paso, para que lo tengas a la mano.
         </div>
       </div>
 
@@ -131,9 +131,9 @@ export default function ContactoDiagnostico({ ruta, respuestas }: { ruta: number
         <button
           type="submit"
           disabled={estado === "enviando"}
-          className="btn btn-primary min-h-[50px] cursor-pointer rounded-full px-6 text-base disabled:opacity-60"
+          className="btn btn-outline min-h-[50px] cursor-pointer rounded-full px-6 text-base disabled:opacity-60"
         >
-          {estado === "enviando" ? "Enviando…" : "Envíame mi diagnóstico"}
+          {estado === "enviando" ? "Enviando…" : "Mandármelo por correo"}
         </button>
         <span className="text-[13px] text-dim">
           Usamos tus datos según el{" "}

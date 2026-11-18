@@ -163,8 +163,6 @@ export default function Diagnostic() {
                     )}
                   </div>
 
-                  {path != null && <ContactoDiagnostico ruta={path} respuestas={answers} />}
-
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href={res.waHref}
@@ -183,6 +181,8 @@ export default function Diagnostic() {
                       Volver a empezar
                     </button>
                   </div>
+
+                  {path != null && <ContactoDiagnostico ruta={path} respuestas={answers} />}
                 </div>
               )
             )}
