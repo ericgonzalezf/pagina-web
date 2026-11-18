@@ -2,8 +2,13 @@
 // 1) a la persona, con su resultado (lo pidió ella: es un correo transaccional), y
 // 2) a Eric, con el aviso del contacto nuevo.
 // Voz de marca: de tú, sin tecnicismos, sin prometer respuesta personal ni hacer preguntas que
-// esperen respuesta (en WhatsApp atiende primero el asistente). Cierre: "Caminemos juntos."
-import { site } from "@/config/site";
+// esperen respuesta. Cierre: "Caminemos juntos."
+import { site, WHATSAPP_CON_ASISTENTE } from "@/config/site";
+
+// Invitación a WhatsApp: solo menciona al asistente cuando ese número ya lo tiene conectado.
+const INVITACION_WHATSAPP = WHATSAPP_CON_ASISTENTE
+  ? "Si quieres ver cómo funcionaría en tu caso, escríbeme por WhatsApp; ahí te atiende mi asistente con IA y, si lo pides, hablamos tú y yo"
+  : "Si quieres ver cómo funcionaría en tu caso, escríbeme por WhatsApp y lo vemos con tu negocio en particular";
 
 export type DatosCorreo = {
   nombre: string | null;
@@ -61,7 +66,7 @@ export function correoResultado(d: DatosCorreo) {
     "Tus respuestas:",
     ...d.respuestas.map((r) => `- ${r.pregunta} ${r.respuesta}`),
     "",
-    "Si quieres ver cómo funcionaría en tu caso, escríbeme por WhatsApp; ahí te atiende mi asistente con IA y, si lo pides, hablamos tú y yo:",
+    `${INVITACION_WHATSAPP}:`,
     d.waHref,
     "",
     "— Eric",
@@ -83,7 +88,7 @@ ${d.notaExtra ? `<p style="margin:0 0 16px">${esc(d.notaExtra)}</p>` : ""}
 <ul style="margin:0 0 20px;padding-left:18px">${d.respuestas
       .map((r) => `<li style="margin:0 0 4px">${esc(r.pregunta)} <strong>${esc(r.respuesta)}</strong></li>`)
       .join("")}</ul>
-<p style="margin:0 0 16px">Si quieres ver cómo funcionaría en tu caso, escríbeme por WhatsApp; ahí te atiende mi asistente con IA y, si lo pides, hablamos tú y yo.</p>
+<p style="margin:0 0 16px">${esc(INVITACION_WHATSAPP)}.</p>
 <p style="margin:0 0 24px">${boton(d.waHref, "Escríbeme por WhatsApp")}</p>
 <p style="margin:0">— Eric<br>Caminemos juntos.</p>`,
     `${esc(site.brand)} · <a href="${esc(site.url)}" style="color:${SUAVE}">${esc(site.domain)}</a><br>Recibes este correo porque pediste tu diagnóstico en ericgonzalezf.com.`,

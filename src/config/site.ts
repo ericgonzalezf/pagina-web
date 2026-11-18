@@ -35,6 +35,12 @@ export const marcaLinks = {
   comprar: `${site.marcaUrl}?modo=comprar`, // pago de la estrategia completa
 };
 
+// ¿El WhatsApp del sitio (site.whatsapp) ya contesta con el asistente con IA?
+// Mientras sea `false`, ningún texto (sección de contacto, chatbot del sitio, correo del
+// diagnóstico) dice que en WhatsApp atiende el asistente: hoy el asistente funciona con un número
+// de prueba y el 8845 todavía no está conectado. El día que se conecte, cambia esto a `true`.
+export const WHATSAPP_CON_ASISTENTE = false;
+
 // Precio de la "Estrategia completa": se edita solo aquí.
 export const PRECIO_ESTRATEGIA = "$497 MXN";
 

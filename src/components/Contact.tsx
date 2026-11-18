@@ -1,4 +1,4 @@
-import { site } from "@/config/site";
+import { site, WHATSAPP_CON_ASISTENTE } from "@/config/site";
 import { waLink, WA_SALUDO, WA_SALUDO_CONTACTO } from "@/lib/whatsapp";
 import {
   IconInstagram,
@@ -33,8 +33,9 @@ export default function Contact() {
           <span className="text-brand">caminar juntos?</span>
         </h2>
         <p className="m-0 max-w-[560px] text-lg leading-[1.55] text-muted sm:text-xl">
-          Cuéntame de tu negocio o de lo que quieres aprender. Te atiende mi asistente con IA; si
-          quieres hablar conmigo sobre tu negocio, también podemos hacerlo.
+          {WHATSAPP_CON_ASISTENTE
+            ? "Cuéntame de tu negocio o de lo que quieres aprender. Te atiende mi asistente con IA; si quieres hablar conmigo sobre tu negocio, también podemos hacerlo."
+            : "Cuéntame de tu negocio o de lo que quieres aprender, y vemos por dónde te conviene empezar."}
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 pt-2">
