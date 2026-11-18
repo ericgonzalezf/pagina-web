@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 import { site } from "@/config/site";
 import { track } from "@/lib/track";
 
@@ -24,6 +25,13 @@ function origenDe(el: Element) {
 }
 
 export default function Analytics() {
+  const pathname = usePathname();
+
+  // Una "visita" por cada página que se abre (también al navegar dentro del sitio).
+  useEffect(() => {
+    track("visita");
+  }, [pathname]);
+
   // Un solo escucha para toda la página: cualquier enlace nuevo a WhatsApp, al correo, a la app
   // de marca o a redes queda medido sin tener que tocar cada botón.
   useEffect(() => {

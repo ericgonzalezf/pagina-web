@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 const title = "Aviso de privacidad";
 const description =
   "Cómo Eric González trata tus datos personales en su sitio web, su WhatsApp, su asistente con IA y la app de marca personal.";
-const actualizacion = "5 de noviembre de 2026";
+const actualizacion = "18 de noviembre de 2026";
 
 export const metadata: Metadata = {
   title: `${title} | ${site.brand}`,
@@ -43,9 +43,8 @@ const proveedores: [string, string][] = [
   ["Anthropic (Claude)", "Generar las respuestas del asistente con inteligencia artificial."],
   [
     "Cloudflare",
-    "Alojar el asistente de WhatsApp y la app de marca personal, y guardar las conversaciones y los datos de prospectos del asistente.",
+    "Alojar este sitio web, el asistente de WhatsApp y la app de marca personal; guardar las conversaciones y los datos de prospectos del asistente, y la medición anónima de visitas del sitio.",
   ],
-  ["Vercel", "Alojar este sitio web."],
   ["Stripe", "Procesar pagos con tarjeta u OXXO. Nunca recibimos los datos completos de tu tarjeta."],
   ["MailerLite y Resend", "Enviar correos, entregables y, si lo aceptas, comunicaciones."],
   ["Google Workspace", "Correo electrónico y agenda."],
@@ -230,10 +229,18 @@ export default function PrivacidadPage() {
           </p>
         </Seccion>
 
-        <Seccion titulo="9. Cookies">
+        <Seccion titulo="9. Cookies y medición del sitio">
           <p>
             Este sitio no usa cookies de publicidad. Las herramientas que lo alojan pueden usar cookies técnicas
             necesarias para que funcione.
+          </p>
+          <p>
+            Para saber cómo se usa el sitio medimos, sin cookies, las páginas que se visitan y los clics en botones
+            como WhatsApp, el diagnóstico o el asistente. Con cada uno guardamos solo la página, la sección, el país
+            aproximado, el tipo de dispositivo (celular, tableta o computadora) y de dónde llegaste (por ejemplo, desde
+            Instagram o un buscador). No guardamos tu dirección IP, tu nombre ni lo que escribes en el asistente o en
+            el diagnóstico. Para unir los pasos de una misma visita, tu navegador guarda un identificador al azar que
+            se borra al cerrar la pestaña.
           </p>
         </Seccion>
 

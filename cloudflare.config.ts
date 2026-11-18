@@ -34,7 +34,15 @@ export default defineConfig(({ isPreview }) => ({
       // sitio nunca queda arriba con el chat apagado por un descuido. Las vistas previas
       // no heredan los secretos de producción, así que ahí no se exige (el chat de la
       // vista previa avisa que está en configuración).
-      ...(isPreview ? {} : { ANTHROPIC_API_KEY: bindings.secret() }),
+      ...(isPreview
+        ? {}
+        : {
+            ANTHROPIC_API_KEY: bindings.secret(),
+            // Base de datos D1 con la medición de visitas y clics (tabla `eventos`, ver
+            // migrations/). Solo en producción, para que las vistas previas no ensucien los
+            // datos: ahí /api/evento no guarda nada.
+            DB: bindings.d1({ id: "baac9a9b-8a89-49f7-bb0c-7679d588eff2", name: "ericgonzalezf-web" }),
+          }),
     },
   }),
 }));

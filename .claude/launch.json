@@ -10,7 +10,7 @@
     {
       "name": "pagina-web-cloudflare",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "start:vinext", "--", "--port", "4173", "--strictPort"],
+      "runtimeArgs": ["run", "start", "--", "--port", "4173", "--strictPort"],
       "port": 4173
     }
   ]

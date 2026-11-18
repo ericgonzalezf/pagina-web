@@ -2,7 +2,8 @@
 
 Sitio personal de Eric González: IA aplicada sin tecnicismos.
 
-Construido con [Next.js](https://nextjs.org) y Tailwind CSS.
+Construido con [Next.js](https://nextjs.org) (App Router) y Tailwind CSS, y se ejecuta con
+[vinext](https://github.com/cloudflare/vinext) sobre Cloudflare Workers.
 
 ## Desarrollo
 
@@ -10,7 +11,14 @@ Construido con [Next.js](https://nextjs.org) y Tailwind CSS.
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000).
+Abre [http://localhost:3000](http://localhost:3000). El servidor de desarrollo usa el mismo motor que
+producción (vinext + Cloudflare), con una base de datos local.
+
+- `npm run build` y luego `npm run start`: prueba local de la versión compilada (puerto 4173 si se indica).
+- `npm run lint`: revisión de código.
+- `npm run db:migrate:local`: crea las tablas en la base de datos local (una vez, o tras agregar una migración).
+
+`next dev` y `next build` ya no se usan: el sitio importa `cloudflare:workers` para la base de datos.
 
 ## Editar contenido
 
@@ -40,7 +48,6 @@ npx cf auth login
 npx cf deploy
 ```
 
-Para probar localmente la versión de Cloudflare: `npm run build:vinext` y luego `npm run start:vinext`.
 El chat necesita un archivo `.dev.vars` (no se sube a GitHub) con `ANTHROPIC_API_KEY=...`.
 
 - **Secreto en producción:** `ANTHROPIC_API_KEY` se carga en el panel de Cloudflare
@@ -51,3 +58,21 @@ El chat necesita un archivo `.dev.vars` (no se sube a GitHub) con `ANTHROPIC_API
   regla de Cloudflare ("Redirecciones") manda el dominio sin www a www conservando los parámetros.
 - **Correo:** los registros de Google, MailerLite y Resend están en la zona de Cloudflare.
   No los borres al tocar el DNS.
+
+## Medición
+
+El sitio mide visitas y clics sin cookies (ver [`src/lib/track.ts`](src/lib/track.ts)). Cada evento se
+guarda en la base de datos D1 `ericgonzalezf-web` de Cloudflare, tabla `eventos`
+([`migrations/0001_eventos.sql`](migrations/0001_eventos.sql)). Solo producción guarda eventos: las
+vistas previas y el desarrollo local sin base de datos los ignoran.
+
+Para ver el resumen (visitas, canales, embudo hasta WhatsApp):
+
+```bash
+node scripts/reporte-metricas.mjs 30
+```
+
+El número es la cantidad de días hacia atrás (7 si no se indica). Necesita `npx cf auth login`.
+
+Para cambiar la tabla: crea una migración nueva en `migrations/` y aplícala con `npm run db:migrate`
+(producción) y `npm run db:migrate:local` (local).
